@@ -53,18 +53,21 @@
                 android:id="@+id/bntPrioritaria"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:onClick="prioritaria"
                 android:text="PRIORITARIA" />
 
             <Button
                 android:id="@+id/btnGeneral"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:onClick="general"
                 android:text="GENERAL" />
 
             <Button
                 android:id="@+id/btnEspecialista"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:onClick="especialista"
                 android:text="ESPECIALISTA" />
 
             <Space
