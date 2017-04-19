@@ -2,6 +2,7 @@ package com.example.tecnosystem.heilhealthy;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 
 public class EditarCitaMedica extends AppCompatActivity {
 
@@ -11,5 +12,8 @@ public class EditarCitaMedica extends AppCompatActivity {
         setContentView(R.layout.activity_editar_cita_medica);
     }
 
+    public void editar(View v){
+
+    }
 
 }
