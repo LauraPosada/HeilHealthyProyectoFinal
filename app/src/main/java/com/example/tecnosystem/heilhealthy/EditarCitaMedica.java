@@ -16,8 +16,6 @@ public class EditarCitaMedica extends AppCompatActivity {
 
     }
 
-    public void metaseElDedoEsperanza(View v){
 
-    }
 
 }
