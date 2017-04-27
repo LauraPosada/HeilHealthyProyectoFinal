@@ -1,16 +1,18 @@
-package modulo;
+package modelo;
 
 /**
  * Created by oscar on 20/04/17.
  */
 
-public class Tipo_eps{
+public class Ciudad {
 
     private int id;
+    private Departamento departamento;
     private String nombre;
 
-    public Tipo_eps(int id, String nombre) {
+    public Ciudad(int id, Departamento departamento, String nombre) {
         this.id = id;
+        this.departamento = departamento;
         this.nombre = nombre;
     }
 
@@ -20,6 +22,14 @@ public class Tipo_eps{
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public Departamento getDepartamento() {
+        return departamento;
+    }
+
+    public void setDepartamento(Departamento departamento) {
+        this.departamento = departamento;
     }
 
     public String getNombre() {

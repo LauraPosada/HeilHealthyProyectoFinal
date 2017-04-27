@@ -1,4 +1,4 @@
-package modulo;
+package modelo;
 
 /**
  * Created by oscar on 20/04/17.
@@ -7,12 +7,12 @@ package modulo;
 public class Departamento {
 
     private int id;
-    private int pais_id;
+    private Pais pais;
     private String nombre;
 
-    public Departamento(int id, int pais_id, String nombre) {
+    public Departamento(int id, Pais pais, String nombre) {
         this.id = id;
-        this.pais_id = pais_id;
+        this.pais = pais;
         this.nombre = nombre;
     }
 
@@ -24,12 +24,12 @@ public class Departamento {
         this.id = id;
     }
 
-    public int getPais_id() {
-        return pais_id;
+    public Pais getPais() {
+        return pais;
     }
 
-    public void setPais_id(int pais_id) {
-        this.pais_id = pais_id;
+    public void setPais(Pais pais) {
+        this.pais = pais;
     }
 
     public String getNombre() {

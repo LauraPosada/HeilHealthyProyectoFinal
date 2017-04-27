@@ -1,18 +1,16 @@
-package modulo;
+package modelo;
 
 /**
  * Created by oscar on 20/04/17.
  */
 
-public class Ciudad {
+public class TipoMedico {
 
     private int id;
-    private int departamento_id;
     private String nombre;
 
-    public Ciudad(int id, int departamento_id, String nombre) {
+    public TipoMedico(int id, String nombre) {
         this.id = id;
-        this.departamento_id = departamento_id;
         this.nombre = nombre;
     }
 
@@ -22,14 +20,6 @@ public class Ciudad {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getDepartamento_id() {
-        return departamento_id;
-    }
-
-    public void setDepartamento_id(int departamento_id) {
-        this.departamento_id = departamento_id;
     }
 
     public String getNombre() {

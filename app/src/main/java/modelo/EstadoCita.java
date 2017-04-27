@@ -1,15 +1,15 @@
-package modulo;
+package modelo;
 
 /**
  * Created by oscar on 20/04/17.
  */
 
-public class Estado_cita {
+public class EstadoCita {
 
     private int id;
     private String estado;
 
-    public Estado_cita(int id, String estado) {
+    public EstadoCita(int id, String estado) {
         this.id = id;
         this.estado = estado;
     }

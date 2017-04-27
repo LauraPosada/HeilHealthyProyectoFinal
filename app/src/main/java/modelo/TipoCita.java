@@ -1,15 +1,15 @@
-package modulo;
+package modelo;
 
 /**
  * Created by oscar on 20/04/17.
  */
 
-public class Tipo_cita {
+public class TipoCita {
 
     private int id;
     private String nombre;
 
-    public Tipo_cita(int id, String nombre) {
+    public TipoCita(int id, String nombre) {
         this.id = id;
         this.nombre = nombre;
     }

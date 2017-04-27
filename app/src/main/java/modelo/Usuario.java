@@ -1,23 +1,16 @@
-package modulo;
+package modelo;
 
 /**
  * Created by TecnoSystem on 20/04/2017.
  */
 
-public class Usuario extends Persona {
+public class Usuario {
 
     private String nombreUsuario;
     private String contrasena;
     private Persona idCedula;
 
-    public Usuario(int cedula, String nombre, String apellido, String emaill, String fechaNacimiento, String genero, double igresos, String nombreUsuario, String contrasena) {
-        super(cedula, nombre, apellido, emaill, fechaNacimiento, genero, igresos);
-        this.nombreUsuario = nombreUsuario;
-        this.contrasena = contrasena;
-    }
-
-    public Usuario(int cedula, String nombre, String apellido, String emaill, String fechaNacimiento, String genero, double igresos, String nombreUsuario, String contrasena, Persona idCedula) {
-        super(cedula, nombre, apellido, emaill, fechaNacimiento, genero, igresos);
+    public Usuario(String nombreUsuario, String contrasena, Persona idCedula) {
         this.nombreUsuario = nombreUsuario;
         this.contrasena = contrasena;
         this.idCedula = idCedula;

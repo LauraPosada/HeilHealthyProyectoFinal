@@ -1,4 +1,4 @@
-package modulo;
+package modelo;
 
 /**
  * Created by oscar on 20/04/17.
@@ -8,14 +8,14 @@ public class Sede {
 
     private int id;
     private String nombre;
-    private int ciudad_id;
+    private Ciudad ciudad;
     private String longitud;
     private String latitud;
 
-    public Sede(int id, String nombre, int ciudad_id, String longitud, String latitud) {
+    public Sede(int id, String nombre, Ciudad ciudad_id, String longitud, String latitud) {
         this.id = id;
         this.nombre = nombre;
-        this.ciudad_id = ciudad_id;
+        this.ciudad = ciudad;
         this.longitud = longitud;
         this.latitud = latitud;
     }
@@ -36,12 +36,12 @@ public class Sede {
         this.nombre = nombre;
     }
 
-    public int getCiudad_id() {
-        return ciudad_id;
+    public Ciudad getCiudad() {
+        return ciudad;
     }
 
-    public void setCiudad_id(int ciudad_id) {
-        this.ciudad_id = ciudad_id;
+    public void setCiudad(Ciudad ciudad) {
+        this.ciudad = ciudad;
     }
 
     public String getLongitud() {

@@ -1,16 +1,16 @@
-package modulo;
+package modelo;
 
 /**
  * Created by oscar on 20/04/17.
  */
 
-public class Nivel_ingreso {
+public class NivelIngreso {
 
     private int id;
     private String tipo;
     private double cuota_moderadora;
 
-    public Nivel_ingreso(int id, String tipo, double cuota_moderadora) {
+    public NivelIngreso(int id, String tipo, double cuota_moderadora) {
         this.id = id;
         this.tipo = tipo;
         this.cuota_moderadora = cuota_moderadora;

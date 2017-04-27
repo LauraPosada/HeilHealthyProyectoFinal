@@ -1,15 +1,15 @@
-package modulo;
+package modelo;
 
 /**
  * Created by oscar on 20/04/17.
  */
 
-public class Tipo_medico {
+public class TipoEps {
 
     private int id;
     private String nombre;
 
-    public Tipo_medico(int id, String nombre) {
+    public TipoEps(int id, String nombre) {
         this.id = id;
         this.nombre = nombre;
     }

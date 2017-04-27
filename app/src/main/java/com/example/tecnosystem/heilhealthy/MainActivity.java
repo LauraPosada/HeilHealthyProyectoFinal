@@ -7,14 +7,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import HttpConecction.HttpConecction;
-import modulo.Usuario;
+import modelo.Usuario;
 
 public class MainActivity extends AppCompatActivity {
 

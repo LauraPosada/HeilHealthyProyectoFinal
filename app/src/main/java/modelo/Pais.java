@@ -1,15 +1,15 @@
-package modulo;
+package modelo;
 
 /**
  * Created by oscar on 20/04/17.
  */
 
-public class Especializacion {
+public class Pais {
 
     private int id;
     private String nombre;
 
-    public Especializacion(int id, String nombre) {
+    public Pais(int id, String nombre) {
         this.id = id;
         this.nombre = nombre;
     }
