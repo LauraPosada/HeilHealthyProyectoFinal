@@ -7,12 +7,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import HttpConecction.HttpConecction;
+import modelo.Persona;
 import modelo.Usuario;
 
 public class MainActivity extends AppCompatActivity {
@@ -37,29 +39,17 @@ public class MainActivity extends AppCompatActivity {
         conecction = new HttpConecction();
     }
 
-    public void ingresar(View v){
-        //creamos la intencion de abrir una ventana
-        Intent i = new Intent(this,Ingresar.class);
-        //Iniciamos la actividad
+    public void registrar(View v) {
+        Intent i = new Intent(this, Registrar.class);
         startActivity(i);
     }
-
-    public void registrar(View v){
-        Intent i = new Intent(this,Registrar.class);
-        startActivity(i);
-    }
-
-
-
-
-
 
     public void validarUsuario(View v) {
         usuario = etUsuario.getText().toString();
         contrasena = etContrasena.getText().toString();
-        enlace = "http://192.168.1.15/PhpProject1/login.php?username=" + usuario + "&password=" + contrasena + "";
 
-        System.out.print("ENtro");
+        enlace = "http://192.168.1.9/Proyectos/Android/HeilHealthy/Controlador/gestionLogIn.php?type=con&nickname=" + usuario + "&password=" + contrasena + "";
+
         new loginUsuario().execute(enlace);
     }
 
@@ -72,51 +62,43 @@ public class MainActivity extends AppCompatActivity {
             return resultado;
         }
 
-       // @Override
-        //protected void onPostExecute(String resutado) {
+        @Override
+        protected void onPostExecute(String resultado) {
+            super.onPostExecute(resultado);
 
-          //  super.onPostExecute(resutado);
+            int r = obtenerDatosJSON(resultado);
+            if (r > 0) {
+                Intent i = new Intent(getApplicationContext(), Ingresar.class);
+                i.putExtra("nombreUsuario", usuario);
+                i.putExtra("contrasena", contrasena);
+                startActivity(i);
+            } else {
+                Toast.makeText(getApplicationContext(), "Usuario o contraseña incorrecto", Toast.LENGTH_LONG).show();
+            }
 
-            //int r = obtenerDatosJSON(resutado);
-            //if (r > 0) {
-              //  Intent i = new Intent(getApplicationContext(), menu.class);
-
-//                i.putExtra("nombreUsuario", usuario);
-//                i.putExtra("contrasena", contrasena);
-  //              startActivity(i);
-    //        } else {
-           //     Toast.makeText(getApplicationContext(), "Usuario o contraseña incorrecto", Toast.LENGTH_LONG).show();
-      //      }
-
-        //}
+        }
 
     }
 
     public int obtenerDatosJSON(String respuesta) {
-        Log.e("respuesta ", respuesta);
+        Log.e("Respuesta ", respuesta);
         int resultado = 0;
         try {
             JSONArray json = new JSONArray(respuesta);
-            Log.e("tamaño json",""+json.length());
+            Log.e("tamaño json", "" + json.length());
+
             if (json.length() > 0) {
                 resultado = 1;
                 JSONObject row = json.getJSONObject(0);
 
-                int codigo = row.getInt("codigo");
-                String nombre = row.getString("nombre");
-                String apellido = row.getString("apellido");
+                String nombreUsuario = row.getString("nombre_usuario");
+                String contrasenia = row.getString("contrasena");
+                Persona persona = new Persona(row.getInt("personas_cedula"),"","","",null,null,"",0);
 
-                 String emaill = row.getString("email");
-                 String fechaNacimiento = row.getString("fecha");
-                 String genero = row.getString("genero");
-                 double igresos = row.getDouble("ingresos");
 
-                String nombreUsuario = row.getString("nombreUsuario");
-                String contraseña = row.getString("contrasena");
+                user = new Usuario(nombreUsuario,contrasenia,persona);
 
-                user = new Usuario(codigo,nombre,apellido,emaill,fechaNacimiento,genero,igresos,nombreUsuario,contraseña);
-
-                Log.e("usuario: ", "" + user.getNombre());
+                Log.e("usuario: ", "" + user.getNombreUsuario());
             }
         } catch (JSONException e) {
             e.printStackTrace();
