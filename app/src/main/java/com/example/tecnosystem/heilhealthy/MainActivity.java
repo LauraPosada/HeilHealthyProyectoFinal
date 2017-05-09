@@ -45,10 +45,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void validarUsuario(View v) {
+
         usuario = etUsuario.getText().toString();
         contrasena = etContrasena.getText().toString();
 
-        enlace = "http://192.168.1.9/Proyectos/Android/HeilHealthy/Controlador/gestionLogIn.php?type=con&nickname=" + usuario + "&password=" + contrasena + "";
+        enlace = "http://192.168.27.166/HeilHealthy/logIn.php?nickname=pulga&password=1";
 
         new loginUsuario().execute(enlace);
     }
@@ -71,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent i = new Intent(getApplicationContext(), Ingresar.class);
                 i.putExtra("nombreUsuario", usuario);
                 i.putExtra("contrasena", contrasena);
+
                 startActivity(i);
             } else {
                 Toast.makeText(getApplicationContext(), "Usuario o contraseña incorrecto", Toast.LENGTH_LONG).show();
