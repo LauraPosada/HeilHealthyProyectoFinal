@@ -24,6 +24,9 @@ public class Persona {
         this.igresos = igresos;
     }
 
+    public Persona() {
+    }
+
     public int getCedula() {
         return cedula;
     }

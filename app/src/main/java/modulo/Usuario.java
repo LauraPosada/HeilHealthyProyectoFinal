@@ -4,23 +4,23 @@ package modulo;
  * Created by TecnoSystem on 20/04/2017.
  */
 
-public class Usuario extends Persona {
+public class Usuario   {
 
     private String nombreUsuario;
     private String contrasena;
-    private Persona idCedula;
+    private Persona persona;
 
-    public Usuario(int cedula, String nombre, String apellido, String emaill, String fechaNacimiento, String genero, double igresos, String nombreUsuario, String contrasena) {
-        super(cedula, nombre, apellido, emaill, fechaNacimiento, genero, igresos);
+
+    public Usuario(String nombreUsuario, String contrasena) {
         this.nombreUsuario = nombreUsuario;
         this.contrasena = contrasena;
     }
 
-    public Usuario(int cedula, String nombre, String apellido, String emaill, String fechaNacimiento, String genero, double igresos, String nombreUsuario, String contrasena, Persona idCedula) {
-        super(cedula, nombre, apellido, emaill, fechaNacimiento, genero, igresos);
+    public Usuario(String nombreUsuario, String contrasena, Persona persona) {
+
         this.nombreUsuario = nombreUsuario;
         this.contrasena = contrasena;
-        this.idCedula = idCedula;
+        this.persona = persona;
     }
 
     public String getNombreUsuario() {
@@ -39,11 +39,11 @@ public class Usuario extends Persona {
         this.contrasena = contrasena;
     }
 
-    public Persona getIdCedula() {
-        return idCedula;
+    public Persona getPersona() {
+        return persona;
     }
 
-    public void setIdCedula(Persona idCedula) {
-        this.idCedula = idCedula;
+    public void setPersona(Persona persona) {
+        this.persona = persona;
     }
 }

@@ -103,21 +103,12 @@ public class MainActivity extends AppCompatActivity {
                 resultado = 1;
                 JSONObject row = json.getJSONObject(0);
 
-                int codigo = row.getInt("codigo");
-                String nombre = row.getString("nombre");
-                String apellido = row.getString("apellido");
-
-                 String emaill = row.getString("email");
-                 String fechaNacimiento = row.getString("fecha");
-                 String genero = row.getString("genero");
-                 double igresos = row.getDouble("ingresos");
-
                 String nombreUsuario = row.getString("nombreUsuario");
                 String contraseña = row.getString("contrasena");
 
-                user = new Usuario(codigo,nombre,apellido,emaill,fechaNacimiento,genero,igresos,nombreUsuario,contraseña);
+                user = new Usuario(nombreUsuario,contraseña);
 
-                Log.e("usuario: ", "" + user.getNombre());
+                Log.e("usuario: ", "" + user.getNombreUsuario());
             }
         } catch (JSONException e) {
             e.printStackTrace();
