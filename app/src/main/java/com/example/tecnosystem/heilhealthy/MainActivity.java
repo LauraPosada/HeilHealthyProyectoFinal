@@ -14,7 +14,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import HttpConecction.HttpConecction;
-import modelo.Persona;
 import modelo.Usuario;
 
 public class MainActivity extends AppCompatActivity {
@@ -49,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         usuario = etUsuario.getText().toString();
         contrasena = etContrasena.getText().toString();
 
-        enlace = "http://192.168.27.166/HeilHealthy/logIn.php?nickname=pulga&password=1";
+        enlace = "http://192.168.27.166/HeilHealthy/logIn.php?nickname="+usuario+"pulga&password="+contrasena+"";
 
         new loginUsuario().execute(enlace);
     }
@@ -83,16 +82,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public int obtenerDatosJSON(String respuesta) {
-        Log.e("Respuesta ", respuesta);
+        Log.e("respuesta ", respuesta);
         int resultado = 0;
         try {
             JSONArray json = new JSONArray(respuesta);
-            Log.e("tamaño json", "" + json.length());
-
+            Log.e("tamaño json",""+json.length());
             if (json.length() > 0) {
                 resultado = 1;
                 JSONObject row = json.getJSONObject(0);
 
+                String nombre = row.getString("nombreUsuario");
+                String contrasena = row.getString("contrasen");
+                String persona = row.getString("idCedula");
+
+
+                user = new Usuario(nombre, contrasena,persona);
 
                 Log.e("usuario: ", "" + user.getNombreUsuario());
             }

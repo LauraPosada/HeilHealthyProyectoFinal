@@ -10,9 +10,9 @@ public class Usuario{
 
     private String nombreUsuario;
     private String contrasena;
-    private Persona idCedula;
+    private String idCedula;
 
-    public Usuario(String nombreUsuario, String contrasena, Persona idCedula) {
+    public Usuario(String nombreUsuario, String contrasena, String idCedula) {
         this.nombreUsuario = nombreUsuario;
         this.contrasena = contrasena;
         this.idCedula = idCedula;
@@ -34,11 +34,11 @@ public class Usuario{
         this.contrasena = contrasena;
     }
 
-    public Persona getIdCedula() {
+    public String getIdCedula() {
         return idCedula;
     }
 
-    public void setIdCedula(Persona idCedula) {
+    public void setIdCedula(String idCedula) {
         this.idCedula = idCedula;
     }
 }
