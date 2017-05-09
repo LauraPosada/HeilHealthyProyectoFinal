@@ -91,19 +91,6 @@ public class MainActivity extends AppCompatActivity {
                 resultado = 1;
                 JSONObject row = json.getJSONObject(0);
 
-<<<<<<< HEAD
-                String nombreUsuario = row.getString("nombreUsuario");
-                String contraseña = row.getString("contrasena");
-
-                user = new Usuario(nombreUsuario,contraseña);
-=======
-                String nombreUsuario = row.getString("nombre_usuario");
-                String contrasenia = row.getString("contrasena");
-                Persona persona = new Persona(row.getInt("personas_cedula"),"","","",null,null,"",0);
-
-
-                user = new Usuario(nombreUsuario,contrasenia,persona);
->>>>>>> origin/master
 
                 Log.e("usuario: ", "" + user.getNombreUsuario());
             }
