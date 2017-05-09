@@ -1,0 +1,258 @@
+Index: app/src/main/java/com/example/tecnosystem/heilhealthy/Registrar.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/tecnosystem/heilhealthy/Registrar.java	(revision ace949246a13550ffb0f66cd4dcd830b8e624f62)
++++ app/src/main/java/com/example/tecnosystem/heilhealthy/Registrar.java	(revision )
+@@ -2,6 +2,7 @@
+ 
+ import android.support.v7.app.AppCompatActivity;
+ import android.os.Bundle;
++import android.view.View;
+ 
+ public class Registrar extends AppCompatActivity {
+ 
+@@ -10,4 +11,9 @@
+         super.onCreate(savedInstanceState);
+         setContentView(R.layout.activity_registrar);
+     }
++
++    public void registrar(View v){
++
++    }
++
+ }
+Index: app/src/main/java/com/example/tecnosystem/heilhealthy/MainActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/tecnosystem/heilhealthy/MainActivity.java	(revision ace949246a13550ffb0f66cd4dcd830b8e624f62)
++++ app/src/main/java/com/example/tecnosystem/heilhealthy/MainActivity.java	(revision )
+@@ -1,7 +1,9 @@
+ package com.example.tecnosystem.heilhealthy;
+ 
++import android.content.Intent;
+ import android.support.v7.app.AppCompatActivity;
+ import android.os.Bundle;
++import android.view.View;
+ 
+ public class MainActivity extends AppCompatActivity {
+ 
+@@ -9,5 +11,16 @@
+     protected void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+         setContentView(R.layout.activity_main);
++    }
++
++    public void ingresar(View v){
++        //creamos la intencion de abrir una ventana
++        Intent i = new Intent(this,Ingresar.class);
++        //Iniciamos la actividad
++        startActivity(i);
++    }
++
++    public void registrar(View v){
++
+     }
+ }
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/vcs.xml	(revision )
++++ .idea/vcs.xml	(revision )
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="$PROJECT_DIR$" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_main.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_main.xml	(revision ace949246a13550ffb0f66cd4dcd830b8e624f62)
++++ app/src/main/res/layout/activity_main.xml	(revision )
+@@ -1,10 +1,11 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:app="http://schemas.android.com/apk/res-auto"
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+-    tools:context="com.example.tecnosystem.heilhealthy.MainActivity">
++    tools:context="com.example.tecnosystem.heilhealthy.MainActivity"
++    android:orientation="vertical">
+ 
+     <TextView
+         android:layout_width="wrap_content"
+@@ -15,4 +16,4 @@
+         app:layout_constraintRight_toRightOf="parent"
+         app:layout_constraintTop_toTopOf="parent" />
+ 
+-</android.support.constraint.ConstraintLayout>
++</LinearLayout>
+Index: app/src/main/java/com/example/tecnosystem/heilhealthy/EditarCitaMedica.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/tecnosystem/heilhealthy/EditarCitaMedica.java	(revision ace949246a13550ffb0f66cd4dcd830b8e624f62)
++++ app/src/main/java/com/example/tecnosystem/heilhealthy/EditarCitaMedica.java	(revision )
+@@ -10,4 +10,6 @@
+         super.onCreate(savedInstanceState);
+         setContentView(R.layout.activity_editar_cita_medica);
+     }
++
++
+ }
+Index: app/src/main/res/layout/activity_ingresar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_ingresar.xml	(revision ace949246a13550ffb0f66cd4dcd830b8e624f62)
++++ app/src/main/res/layout/activity_ingresar.xml	(revision )
+@@ -1,9 +1,10 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:app="http://schemas.android.com/apk/res-auto"
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+-    tools:context="com.example.tecnosystem.heilhealthy.Ingresar">
++    tools:context="com.example.tecnosystem.heilhealthy.Ingresar"
++    android:orientation="vertical">
+ 
+-</android.support.constraint.ConstraintLayout>
++</LinearLayout>
+Index: app/src/main/res/layout/activity_solicitar_cita.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_solicitar_cita.xml	(revision ace949246a13550ffb0f66cd4dcd830b8e624f62)
++++ app/src/main/res/layout/activity_solicitar_cita.xml	(revision )
+@@ -1,9 +1,10 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:app="http://schemas.android.com/apk/res-auto"
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+-    tools:context="com.example.tecnosystem.heilhealthy.SolicitarCita">
++    tools:context="com.example.tecnosystem.heilhealthy.SolicitarCita"
++    android:orientation="vertical">
+ 
+-</android.support.constraint.ConstraintLayout>
++</LinearLayout>
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/misc.xml	(revision ace949246a13550ffb0f66cd4dcd830b8e624f62)
++++ .idea/misc.xml	(revision )
+@@ -37,7 +37,7 @@
+     <ConfirmationsSetting value="0" id="Add" />
+     <ConfirmationsSetting value="0" id="Remove" />
+   </component>
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" assert-keyword="true" jdk-15="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" default="true" assert-keyword="true" jdk-15="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/build/classes" />
+   </component>
+   <component name="ProjectType">
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_registrar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_registrar.xml	(revision ace949246a13550ffb0f66cd4dcd830b8e624f62)
++++ app/src/main/res/layout/activity_registrar.xml	(revision )
+@@ -1,9 +1,10 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:app="http://schemas.android.com/apk/res-auto"
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+-    tools:context="com.example.tecnosystem.heilhealthy.Registrar">
++    tools:context="com.example.tecnosystem.heilhealthy.Registrar"
++    android:orientation="vertical">
+ 
+-</android.support.constraint.ConstraintLayout>
++</LinearLayout>
+Index: app/src/main/res/layout/activity_editar_cita_medica.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_editar_cita_medica.xml	(revision ace949246a13550ffb0f66cd4dcd830b8e624f62)
++++ app/src/main/res/layout/activity_editar_cita_medica.xml	(revision )
+@@ -1,9 +1,10 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:app="http://schemas.android.com/apk/res-auto"
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+-    tools:context="com.example.tecnosystem.heilhealthy.EditarCitaMedica">
++    tools:context="com.example.tecnosystem.heilhealthy.EditarCitaMedica"
++    android:orientation="vertical">
+ 
+-</android.support.constraint.ConstraintLayout>
++</LinearLayout>
+Index: app/src/main/java/com/example/tecnosystem/heilhealthy/Ingresar.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/tecnosystem/heilhealthy/Ingresar.java	(revision ace949246a13550ffb0f66cd4dcd830b8e624f62)
++++ app/src/main/java/com/example/tecnosystem/heilhealthy/Ingresar.java	(revision )
+@@ -1,7 +1,9 @@
+ package com.example.tecnosystem.heilhealthy;
+ 
++import android.content.Intent;
+ import android.support.v7.app.AppCompatActivity;
+ import android.os.Bundle;
++import android.view.View;
+ 
+ public class Ingresar extends AppCompatActivity {
+ 
+@@ -9,5 +11,24 @@
+     protected void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+         setContentView(R.layout.activity_ingresar);
++    }
++
++    public void prioritaria(View v){
++
++        Intent i = new Intent(this,SolicitarCita.class);
++        startActivity(i);
++
++    }
++
++    public void general(View v){
++
++        Intent i = new Intent(this,SolicitarCita.class);
++        startActivity(i);
++    }
++
++    public void especialista(View v){
++
++        Intent i = new Intent(this,SolicitarCita.class);
++        startActivity(i);
+     }
+ }
