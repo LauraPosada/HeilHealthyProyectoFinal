@@ -1,4 +1,6 @@
-package modulo;
+package modelo;
+
+import java.util.Date;
 
 /**
  * Created by TecnoSystem on 20/04/2017.
@@ -10,16 +12,18 @@ public class Persona {
     private String nombre;
     private String apellido;
     private String emaill;
-    private String fechaNacimiento;
+    private Date fechaNacimiento;
+    private Ciudad ciudad;
     private String genero;
     private double igresos;
 
-    public Persona(int cedula, String nombre, String apellido, String emaill, String fechaNacimiento, String genero, double igresos) {
+    public Persona(int cedula, String nombre, String apellido, String emaill, Date fechaNacimiento, Ciudad ciudad, String genero, double igresos) {
         this.cedula = cedula;
         this.nombre = nombre;
         this.apellido = apellido;
         this.emaill = emaill;
         this.fechaNacimiento = fechaNacimiento;
+        this.ciudad = ciudad;
         this.genero = genero;
         this.igresos = igresos;
     }
@@ -59,12 +63,20 @@ public class Persona {
         this.emaill = emaill;
     }
 
-    public String getFechaNacimiento() {
+    public Date getFechaNacimiento() {
         return fechaNacimiento;
     }
 
-    public void setFechaNacimiento(String fechaNacimiento) {
+    public void setFechaNacimiento(Date fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public Ciudad getCiudad() {
+        return ciudad;
+    }
+
+    public void setCiudad(Ciudad ciudad) {
+        this.ciudad = ciudad;
     }
 
     public String getGenero() {
