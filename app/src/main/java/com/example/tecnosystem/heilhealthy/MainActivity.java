@@ -14,6 +14,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import HttpConecction.HttpConecction;
+import modelo.Persona;
 import modelo.Usuario;
 
 public class MainActivity extends AppCompatActivity {
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     String enlace;
     String usuario;
     String contrasena;
+    String tipoUs;
 
     HttpConecction conecction;
     Usuario user;
@@ -68,11 +70,20 @@ public class MainActivity extends AppCompatActivity {
 
             int r = obtenerDatosJSON(resultado);
             if (r > 0) {
-                Intent i = new Intent(getApplicationContext(), Ingresar.class);
-                i.putExtra("nombreUsuario", usuario);
-                i.putExtra("contrasena", contrasena);
 
-                startActivity(i);
+                if(tipoUs.equals("Paciente")) {
+                    Intent i = new Intent(getApplicationContext(), Ingresar.class);
+                    i.putExtra("nombreUsuario", usuario);
+                    i.putExtra("contrasena", contrasena);
+                    startActivity(i);
+                }else if(tipoUs.equals("Medico")){
+                    Intent i = new Intent(getApplicationContext(), SolicitarCita.class);
+                    i.putExtra("nombreUsuario", usuario);
+                    i.putExtra("contrasena", contrasena);
+                    startActivity(i);
+                }else if(tipoUs.equals("adm")){
+
+                }
             } else {
                 Toast.makeText(getApplicationContext(), "Usuario o contraseña incorrecto", Toast.LENGTH_LONG).show();
             }
@@ -91,12 +102,16 @@ public class MainActivity extends AppCompatActivity {
                 resultado = 1;
                 JSONObject row = json.getJSONObject(0);
 
-                String nombre = row.getString("nombreUsuario");
-                String contrasena = row.getString("contrasen");
-                String persona = row.getString("idCedula");
+                String nombre = row.getString("nombre_usuario");
+                String contrasena = row.getString("contrasena");
+                String pers = row.getString("personas_cedula");
+                tipoUs = row.getString("tipousuario");
 
 
-                user = new Usuario(nombre, contrasena,persona);
+
+                Persona persona = new Persona(Integer.parseInt(pers),"","","",null,null,"",0);
+
+                user = new Usuario(nombre, contrasena,persona,tipoUs);
 
                 Log.e("usuario: ", "" + user.getNombreUsuario());
             }
