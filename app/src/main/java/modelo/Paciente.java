@@ -12,7 +12,7 @@ public class Paciente extends Persona{
     private NivelIngreso nivel_ingreso;
 
     public Paciente(int cedula, String nombre, String apellido, String emaill, Date fechaNacimiento, Ciudad ciudad, String genero, double igresos, TipoEps tipo_eps, NivelIngreso nivel_ingreso) {
-        super(cedula, nombre, apellido, emaill, fechaNacimiento, ciudad, genero, igresos);
+        super();
         this.tipo_eps = tipo_eps;
         this.nivel_ingreso = nivel_ingreso;
     }

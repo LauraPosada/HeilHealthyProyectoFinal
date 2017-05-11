@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     String usuario;
     String contrasena;
     String tipoUs;
+    String idUsuario;
 
     HttpConecction conecction;
     Usuario user;
@@ -50,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         usuario = etUsuario.getText().toString();
         contrasena = etContrasena.getText().toString();
 
-        enlace = "http://192.168.26.137/HeilHealthy/logIn.php?nickname="+usuario+"&password="+contrasena+"";
+        enlace = "http://192.168.26.137/HealHealthy/logIn.php?nickname="+usuario+"&password="+contrasena+"";
 
         new loginUsuario().execute(enlace);
     }
@@ -72,9 +73,10 @@ public class MainActivity extends AppCompatActivity {
             if (r > 0) {
 
                 if(tipoUs.equals("Paciente")) {
-                    Intent i = new Intent(getApplicationContext(), Ingresar.class);
+                    Intent i = new Intent(getApplicationContext(), ListaCitas.class);
                     i.putExtra("nombreUsuario", usuario);
                     i.putExtra("contrasena", contrasena);
+                    i.putExtra("id",idUsuario);
                     startActivity(i);
                 }else if(tipoUs.equals("Medico")){
                     Intent i = new Intent(getApplicationContext(), SolicitarCita.class);
@@ -97,18 +99,20 @@ public class MainActivity extends AppCompatActivity {
         int resultado = 0;
         try {
             JSONArray json = new JSONArray(respuesta);
+            Log.e("tamaño json",""+json.length());
             if (json.length() > 0) {
                 resultado = 1;
                 JSONObject row = json.getJSONObject(0);
 
                 String nombre = row.getString("nombre_usuario");
                 String contrasena = row.getString("contrasena");
-                String pers = row.getString("personas_cedula");
+                idUsuario = row.getString("personas_cedula");
                 tipoUs = row.getString("tipousuario");
-                Persona persona = new Persona(Integer.parseInt(pers),"","","",null,null,"",0);
+                Persona persona = new Persona(Integer.parseInt(idUsuario),"","","",null,null,"",0);
 
                 user = new Usuario(nombre, contrasena,persona,tipoUs);
 
+                Log.e("usuario: ", "" + user.getNombreUsuario());
             }
         } catch (JSONException e) {
             e.printStackTrace();
