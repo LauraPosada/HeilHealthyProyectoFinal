@@ -39,15 +39,15 @@ public class ListaCitas extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_citas);
 
-        listacitas = (ListView) findViewById(R.id.listaCitas);
+        //listacitas = (ListView) findViewById(R.id.listaCitas);
 
-        enlace = "http://192.168.26.137/HealHealthy/buscarCitaUsuario.php?idUsuario=1094";
+        //enlace = "http://192.168.26.137/HealHealthy/buscarCitaUsuario.php?idUsuario=1094";
 
-        new listaMaterias().execute(enlace);
+        //new listaMaterias().execute(enlace);
 
     }
 
-
+/*
     public int obtenerDatosJSON(String respuesta) {
         Log.e("respuesta ", respuesta);
         int resultado = 0;
@@ -121,6 +121,6 @@ public class ListaCitas extends AppCompatActivity {
             }
         }
     }
-
+*/
 
 }
