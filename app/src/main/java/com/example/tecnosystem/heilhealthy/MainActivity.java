@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         usuario = etUsuario.getText().toString();
         contrasena = etContrasena.getText().toString();
 
-        enlace = "http://"+General.getIpServidor()+"/Proyectos/Android/HeilHealthy/logIn.php?nickname="+usuario+"&password="+contrasena+"";
+        enlace = "http://"+General.getIpServidor()+"/HealHealthy/logIn.php?nickname="+usuario+"&password="+contrasena+"";
 
         new loginUsuario().execute(enlace);
     }
