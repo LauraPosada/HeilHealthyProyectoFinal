@@ -97,7 +97,6 @@ public class MainActivity extends AppCompatActivity {
         int resultado = 0;
         try {
             JSONArray json = new JSONArray(respuesta);
-            Log.e("tamaño json",""+json.length());
             if (json.length() > 0) {
                 resultado = 1;
                 JSONObject row = json.getJSONObject(0);
@@ -106,14 +105,10 @@ public class MainActivity extends AppCompatActivity {
                 String contrasena = row.getString("contrasena");
                 String pers = row.getString("personas_cedula");
                 tipoUs = row.getString("tipousuario");
-
-
-
                 Persona persona = new Persona(Integer.parseInt(pers),"","","",null,null,"",0);
 
                 user = new Usuario(nombre, contrasena,persona,tipoUs);
 
-                Log.e("usuario: ", "" + user.getNombreUsuario());
             }
         } catch (JSONException e) {
             e.printStackTrace();
