@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
             if (r > 0) {
 
                 if(tipoUs.equals("Paciente")) {
-                    Intent i = new Intent(getApplicationContext(), ListaCitas.class);
+                    Intent i = new Intent(getApplicationContext(), InicioPaciente.class);
                     i.putExtra("nombreUsuario", usuario);
                     i.putExtra("contrasena", contrasena);
                     i.putExtra("id",idUsuario);
@@ -88,6 +88,9 @@ public class MainActivity extends AppCompatActivity {
                     i.putExtra("nombreUsuario", usuario);
                     i.putExtra("contrasena", contrasena);
                     startActivity(i);
+                }else{
+                    Toast.makeText(getApplicationContext(), "Usuario o contraseña incorrecto", Toast.LENGTH_LONG).show();
+
                 }
             } else {
                 Toast.makeText(getApplicationContext(), "Usuario o contraseña incorrecto", Toast.LENGTH_LONG).show();
