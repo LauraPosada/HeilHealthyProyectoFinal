@@ -23,7 +23,8 @@
         <activity android:name=".Registrar" />
         <activity android:name=".SolicitarCita" />
         <activity android:name=".ListaCitas" />
-        <activity android:name=".InicioMedico"></activity>
+        <activity android:name=".InicioMedico" />
+        <activity android:name=".InicioAdm"></activity>
     </application>
 
 </manifest>
