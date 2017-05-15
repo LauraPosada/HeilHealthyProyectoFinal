@@ -20,13 +20,7 @@
             android:layout_height="match_parent">
 
 
-            <TextView
-                android:id="@+id/textView7"
-                style="@style/Titulo"
-                android:layout_width="match_parent"
-                android:layout_height="500dp"
-                android:layout_weight="200dp"
-                android:text="BIENVENIDO A HEALHEALTHY" />
+
 
             <ImageView
                 android:id="@+id/imageView"
