@@ -28,8 +28,9 @@ public class Registrar extends Activity implements AdapterView.OnItemSelectedLis
 
     HttpConecction connection;
     String enlace;
+    String enlaceEps;
 
-    ArrayList<TipoEps> eps;
+    List<TipoEps> eps;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,77 +38,90 @@ public class Registrar extends Activity implements AdapterView.OnItemSelectedLis
         setContentView(R.layout.activity_registrar);
 
         spEps = (Spinner) findViewById(R.id.spinnerEps);
-        spEps.setOnItemSelectedListener(this);
 
         connection = new HttpConecction();
         enlace = "http://"+General.getIpServidor()+"/HealHealthy/";
 
-        new listaEps().execute(enlace);
+cargarEps();
+       // new listaEps().execute(enlace);
     }
 
-    public int obtenerDatosJSON(String respuesta) {
-        Log.e("respuesta ", respuesta);
-        int resultado = 0;
-        try {
-            JSONArray json = new JSONArray(respuesta);
-
-            eps = new ArrayList<TipoEps>();
-
-            for (int i = 0; i < json.length(); i++) {
-                resultado = 1;
-                JSONObject row = json.getJSONObject(i);
-
-                int ide = row.getInt("id");
-                String nommbre = row.getString("nombre");
-                Log.e("eps: ", "M: " + nommbre);
-
-                eps.add(new TipoEps(ide,nommbre));
-
-
-            }
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-        return resultado;
+    public  void cargarEps(){
+        enlaceEps= "http://"+General.getIpServidor()+"/HealHealthy/buscarEPS.php";
+        new HiloEps().execute(enlaceEps);
     }
 
-    class  listaEps extends AsyncTask<String,Float,String> {
-
-        protected void onPreExecute(){
-            super.onPreExecute();
-        }
-
+    public class HiloEps extends AsyncTask<String,Float,String> {
         @Override
-        protected String doInBackground(String... params) {
-            String resultado = connection.enviarDatosGet(enlace);
-            return resultado;
+        protected void onPreExecute() {super.onPreExecute();}
+        @Override
+        protected String doInBackground(String... strings) {
+            String rta = connection.enviarDatosGet(enlaceEps);
+            return rta;
         }
-
-        protected  void onPostExecute(String resultado){
-            super.onPostExecute(resultado);
-            int r = obtenerDatosJSON(resultado);
-            if(r<0){
-                Toast.makeText(getApplicationContext(),"Usuario no tiene materias regsitradas",Toast.LENGTH_LONG).show();
-            }{
-                List<String> listaeps = new ArrayList<>();
-
-                for (int i =0;i<eps.size();i++){
-                    listaeps.add(eps.get(i).getNombre()+"");
-                    Log.e("datos array: ",eps.get(i).getNombre());
-                }
-
-                ArrayAdapter<String> adaptador= new ArrayAdapter<String>(Registrar.this,
-                        android.R.layout.simple_spinner_dropdown_item, listaeps);
-
-                adaptador.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
+        @Override
+        protected void onPostExecute(String rta) {
+            super.onPostExecute(rta);
+            // Generos
+            eps = obtenerDatosJSON(rta);
+            if(eps.size()>0){
+                ArrayAdapter<TipoEps> adaptador = new ArrayAdapter<TipoEps>(getApplicationContext(),android.R.layout.simple_spinner_item,eps);
                 spEps.setAdapter(adaptador);
-
+            }else{
+                Toast.makeText(getApplicationContext(),"ERROR, registre generos en la base de datos",Toast.LENGTH_SHORT).show();
             }
         }
+        /**
+         * NOTA HP!:
+         * Si el .json inicia con { se considera como objeto Json.
+         * Si el .json inicia con [ es considerado como Arreglo Json.
+         *
+         * obtiene los datos de un json
+         * @param rta es las respuesta json
+         * @return
+         */
+        public List<TipoEps> obtenerDatosJSON(String rta){
+            Log.e("Eps JSON",rta);
+            // La lista de generos a retornar
+            List<TipoEps> lista = new ArrayList<TipoEps>();
+            try{
+                /**
+                 * accedemos al json como array, ya que estamos 100% seguros de que lo que devuelve es un array
+                 * y no un objeto.
+                 */
+                JSONArray json = new JSONArray(rta);
+                for (int i=0; i<json.length(); i++){
+                    JSONObject row = json.getJSONObject(i);
+                    TipoEps g = new TipoEps();
+                    g.setId(row.getInt("id"));
+                    g.setNombre(row.getString("nombre"));
+                    lista.add(g);
+                }
+            } catch (JSONException e){
+                e.printStackTrace();
+            }
+            return lista;
+        }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public void registrar(View v){
 
