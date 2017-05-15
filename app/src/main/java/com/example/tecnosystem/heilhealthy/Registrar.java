@@ -72,10 +72,6 @@ cargarEps();
             }
         }
         /**
-         * NOTA HP!:
-         * Si el .json inicia con { se considera como objeto Json.
-         * Si el .json inicia con [ es considerado como Arreglo Json.
-         *
          * obtiene los datos de un json
          * @param rta es las respuesta json
          * @return
