@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -25,11 +26,17 @@ public class CitasFechaMedico extends AppCompatActivity {
 
     Spinner citaFecha;
 
+    ListView lisCitaFecha;
+
     String enlace;
+
+    String enlaceLista;
 
     HttpConecction conecction;
 
     List<CitaMedica> listaCItasMedicas;
+
+    List<CitaMedica> listaCitaFecha;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +45,11 @@ public class CitasFechaMedico extends AppCompatActivity {
 
         citaFecha = (Spinner) findViewById(R.id.spFechaCitaMedico);
 
+        lisCitaFecha = (ListView) findViewById(R.id.listcitafecha);
+
         conecction = new HttpConecction();
         cargarCombo();
+        cargarLista();
 
     }
 
@@ -109,4 +119,73 @@ public class CitasFechaMedico extends AppCompatActivity {
         }
 
     }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+
+    public void cargarLista() {
+        enlaceLista = "http://" + General.getIpServidor() + "/HealHealthy/buscarCitaFecha.php?fechaCita='2017-06-05'";
+        new hiloCItaFecha().execute(enlaceLista);
+    }
+
+    public class hiloCItaFecha extends AsyncTask<String, Float, String> {
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected String doInBackground(String... strings) {
+            String rta = conecction.enviarDatosGet(enlaceLista);
+            return rta;
+        }
+
+        @Override
+        protected void onPostExecute(String rta) {
+            super.onPostExecute(rta);
+            // Generos
+            listaCitaFecha = obtenerDatosJSONFecha(rta);
+            if (listaCitaFecha.size() > 0) {
+                ArrayAdapter<CitaMedica> adaptador = new ArrayAdapter<CitaMedica>(getApplicationContext(), android.R.layout.simple_list_item_1, listaCitaFecha);
+                lisCitaFecha.setAdapter(adaptador);
+            } else {
+                Toast.makeText(getApplicationContext(), "ERROR", Toast.LENGTH_SHORT).show();
+            }
+        }
+
+        /**
+         * obtiene los datos de un json
+         *
+         * @param rta es las respuesta json
+         * @return
+         */
+        public List<CitaMedica> obtenerDatosJSONFecha(String rta) {
+            Log.e("Eps JSON", rta);
+            // La lista de generos a retornar
+            List<CitaMedica> lista = new ArrayList<>();
+            try {
+                /**
+                 * accedemos al json como array, ya que estamos 100% seguros de que lo que devuelve es un array
+                 * y no un objeto.
+                 */
+                JSONArray json = new JSONArray(rta);
+                for (int i = 0; i < json.length(); i++) {
+                    JSONObject row = json.getJSONObject(i);
+                    CitaMedica g = new CitaMedica();
+
+                    g.setId(Integer.parseInt(row.getString("id")));
+                    String fecha = row.getString("fecha_cita");
+                    //   SimpleDateFormat formato = new SimpleDateFormat("aaaa-mm-dd");
+                    // Date fech=formato.parse(fecha);
+                    g.setFecha_cita(fecha);
+                    lista.add(g);
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return lista;
+        }
+
+    }
+
 }
+
