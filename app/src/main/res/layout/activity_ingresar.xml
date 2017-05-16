@@ -19,6 +19,7 @@
             tools:context="com.example.tecnosystem.proyectofinalhospital.Ingresar">
 
             <Spinner
+                style="@style/Combo"
                 android:id="@+id/spSede"
                 android:layout_width="match_parent"
                 android:layout_height="39dp" />
@@ -28,6 +29,7 @@
                 android:layout_height="22dp" />
 
             <Spinner
+                style="@style/Combo"
                 android:id="@+id/spEspecialista"
                 android:layout_width="match_parent"
                 android:layout_height="39dp" />
@@ -37,6 +39,7 @@
                 android:layout_height="26dp" />
 
             <Spinner
+                style="@style/Combo"
                 android:id="@+id/spHorario"
                 android:layout_width="match_parent"
                 android:layout_height="39dp" />

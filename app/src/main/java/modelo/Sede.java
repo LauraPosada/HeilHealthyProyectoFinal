@@ -1,10 +1,12 @@
 package modelo;
 
+import java.io.Serializable;
+
 /**
  * Created by oscar on 20/04/17.
  */
 
-public class Sede {
+public class Sede implements Serializable{
 
     private int id;
     private String nombre;
@@ -58,5 +60,14 @@ public class Sede {
 
     public void setLatitud(String latitud) {
         this.latitud = latitud;
+    }
+
+
+    public Sede() {
+    }
+
+    @Override
+    public String toString() {
+        return  nombre ;
     }
 }
