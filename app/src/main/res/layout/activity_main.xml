@@ -20,16 +20,22 @@
             android:layout_height="match_parent">
 
 
-
-
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/textView5"
+                style="@style/Titulo"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/logo" />
+                android:text="BIENVENIDOS A HEALHEALTHY" />
 
         </TableRow>
+
+        <ImageView
+            style="@style/Logo"
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/logo" />
 
     </LinearLayout>
 
