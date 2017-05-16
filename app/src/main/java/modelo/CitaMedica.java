@@ -1,10 +1,13 @@
 package modelo;
 
+import java.io.Serializable;
+import java.util.Date;
+
 /**
  * Created by oscar on 20/04/17.
  */
 
-public class CitaMedica {
+public class CitaMedica implements Serializable{
 
     private int id;
     private String motivo_descripcion;
@@ -14,8 +17,15 @@ public class CitaMedica {
     private TipoCita tipo_cita;
     private Medico medico;
     private Paciente paciente;
+    private String fecha_cita;
 
-    public CitaMedica(int id, String motivo_descripcion, double valor_consulta, boolean disponibilidad, EstadoCita estado_cita, TipoCita tipo_cita, Medico medico, Paciente paciente) {
+    public CitaMedica() {
+
+    }
+
+    public CitaMedica(int id, String motivo_descripcion, double valor_consulta,
+                      boolean disponibilidad, EstadoCita estado_cita, TipoCita tipo_cita,
+                      Medico medico, Paciente paciente, String fecha_cita) {
         this.id = id;
         this.motivo_descripcion = motivo_descripcion;
         this.valor_consulta = valor_consulta;
@@ -24,6 +34,7 @@ public class CitaMedica {
         this.tipo_cita = tipo_cita;
         this.medico = medico;
         this.paciente = paciente;
+        this.fecha_cita = fecha_cita;
     }
 
     public int getId() {
@@ -88,5 +99,18 @@ public class CitaMedica {
 
     public void setPaciente(Paciente paciente) {
         this.paciente = paciente;
+    }
+
+    public String getFecha_cita() {
+        return fecha_cita;
+    }
+
+    public void setFecha_cita(String fecha_cita) {
+        this.fecha_cita = fecha_cita;
+    }
+
+    @Override
+    public String toString() {
+        return  id+" | " +fecha_cita;
     }
 }

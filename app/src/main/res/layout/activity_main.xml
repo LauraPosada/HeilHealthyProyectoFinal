@@ -5,9 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fondoapp"
+    android:orientation="vertical"
     android:weightSum="1"
-    tools:context="com.example.tecnosystem.heilhealthy.MainActivity"
-    android:orientation="vertical">
+    tools:context="com.example.tecnosystem.heilhealthy.MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -30,8 +30,8 @@
         </TableRow>
 
         <ImageView
-            style="@style/Logo"
             android:id="@+id/imageView"
+            style="@style/Logo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -47,7 +47,7 @@
         android:id="@+id/tvUsuario"
         android:layout_width="match_parent"
         android:layout_height="34dp"
-        android:text="Usuario"
+        android:text="   Usuario"
         android:textSize="18sp" />
 
     <EditText
@@ -65,7 +65,7 @@
         android:id="@+id/tvPassword"
         android:layout_width="match_parent"
         android:layout_height="34dp"
-        android:text="Password"
+        android:text="   Password"
         android:textSize="18sp" />
 
     <EditText
@@ -75,33 +75,34 @@
         android:ems="10"
         android:inputType="textPassword" />
 
-    <LinearLayout
-        android:layout_width="214dp"
-        android:layout_height="58dp">
 
-        <TableRow
-            android:layout_width="wrap_content"
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.18" />
 
-            android:layout_height="match_parent">
+    <Button
+        android:id="@+id/btnIngresar"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_blue_light"
+        android:onClick="validarUsuario"
+        android:text="INGRESAR" />
 
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.14" />
 
-            <Button
-                android:id="@+id/btnIngresar"
-                style="@style/Widget.AppCompat.Button.Colored"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:onClick="validarUsuario"
-                android:text="INGRESAR" />
+    <Button
+        android:id="@+id/bntRegistrar"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_green_light"
+        android:onClick="registrar"
+        android:text="REGISTAR" />
 
-            <Button
-                android:id="@+id/bntRegistrar"
-                style="@style/Widget.AppCompat.Button.Colored"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:onClick="registrar"
-                android:text="REGISTAR" />
-        </TableRow>
-
-    </LinearLayout>
 
 </LinearLayout>
