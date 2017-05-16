@@ -1,12 +1,13 @@
 package modelo;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by TecnoSystem on 20/04/2017.
  */
 
-public class Persona {
+public class Persona implements Serializable{
 
     private int cedula;
     private String nombre;
@@ -93,5 +94,10 @@ public class Persona {
 
     public void setIgresos(double igresos) {
         this.igresos = igresos;
+    }
+
+    @Override
+    public String toString() {
+        return nombre;
     }
 }

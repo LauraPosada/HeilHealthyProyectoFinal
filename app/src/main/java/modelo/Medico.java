@@ -1,15 +1,18 @@
 package modelo;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by oscar on 20/04/17.
  */
 
-public class Medico extends Persona{
+public class Medico extends Persona implements Serializable{
 
     private Especializacion especializacion;
     private TipoMedico tipo_medico;
+
+
 
     public Medico(int cedula, String nombre, String apellido, String emaill, Date fechaNacimiento, Ciudad ciudad, String genero, double igresos, Especializacion especializacion, TipoMedico tipo_medico) {
         super(cedula, nombre, apellido, emaill, fechaNacimiento, ciudad, genero, igresos);
@@ -31,5 +34,13 @@ public class Medico extends Persona{
 
     public void setTipo_medico(TipoMedico tipo_medico) {
         this.tipo_medico = tipo_medico;
+    }
+
+    public Medico() {
+    }
+
+    @Override
+    public String toString() {
+        return tipo_medico.toString();
     }
 }

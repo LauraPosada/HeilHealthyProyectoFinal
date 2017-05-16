@@ -21,12 +21,15 @@ import java.util.List;
 
 import HttpConecction.HttpConecction;
 import modelo.Ciudad;
+import modelo.Medico;
+import modelo.Persona;
 import modelo.Sede;
 import modelo.TipoEps;
 
 public class Ingresar extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-    TextView usu;
+    Spinner spEspe;
+    String enlaceEspe;
 
     Spinner spHorarioFecha;
     String[] horas = {"Seleccione","7:00 am","7:30 am"};
@@ -34,8 +37,10 @@ public class Ingresar extends AppCompatActivity implements AdapterView.OnItemSel
     Spinner spSedess;
     String enlaceSedes;
 
+
     HttpConecction connection;
     List<Sede> listaSede;
+    List<Persona> listaMedico;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +49,8 @@ public class Ingresar extends AppCompatActivity implements AdapterView.OnItemSel
 
         spHorarioFecha = (Spinner) findViewById(R.id.spHorario);
         spSedess =(Spinner) findViewById(R.id.spSede);
-        usu = (TextView) findViewById(R.id.usu);
+        spEspe = (Spinner) findViewById(R.id.spEspecialista);
+
 
         ArrayAdapter<String>adaptador = new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item,horas);
 
@@ -53,12 +59,13 @@ public class Ingresar extends AppCompatActivity implements AdapterView.OnItemSel
 
         connection = new HttpConecction();
         cargarSedes();
+        cargarMedicoEspe();
 
+    }
 
-        String usuario = General.getUsuLogeado();
-
-        usu.setText(usuario);
-
+    public void cargarMedicoEspe(){
+        enlaceEspe = "http://"+General.getIpServidor()+"/HealHealthy/buscarEspecialista.php";
+        new hiloEspe().execute(enlaceEspe);
     }
 
     public void cargarSedes(){
@@ -110,6 +117,55 @@ public class Ingresar extends AppCompatActivity implements AdapterView.OnItemSel
                     g.setLatitud(row.getString("latitud"));
                     lista.add(g);
 
+
+                }
+            } catch (JSONException e){
+                e.printStackTrace();
+            }
+            return lista;
+        }
+    }
+
+    public class hiloEspe extends AsyncTask<String,Float,String> {
+        @Override
+        protected void onPreExecute() {super.onPreExecute();}
+        @Override
+        protected String doInBackground(String... strings) {
+            String rta = connection.enviarDatosGet(enlaceEspe);
+            return rta;
+        }
+        @Override
+        protected void onPostExecute(String rta) {
+            super.onPostExecute(rta);
+            // Generos
+            listaMedico = obtenerDatosJSONm(rta);
+            if(listaMedico.size()>0){
+                ArrayAdapter<Persona> adaptador = new ArrayAdapter<Persona>(getApplicationContext(),android.R.layout.simple_spinner_item,listaMedico);
+                spEspe.setAdapter(adaptador);
+            }else{
+                Toast.makeText(getApplicationContext(),"ERROR, registre generos en la base de datos",Toast.LENGTH_SHORT).show();
+            }
+        }
+        /**
+         * obtiene los datos de un json
+         * @param rta es las respuesta json
+         * @return
+         */
+        public List<Persona> obtenerDatosJSONm(String rta){
+            Log.e("Persona JSON",rta);
+            // La lista de generos a retornar
+            List<Persona> lista = new ArrayList<Persona>();
+            try{
+                /**
+                 * accedemos al json como array, ya que estamos 100% seguros de que lo que devuelve es un array
+                 * y no un objeto.
+                 */
+                JSONArray json = new JSONArray(rta);
+                for (int i=0; i<json.length(); i++){
+                    JSONObject row = json.getJSONObject(i);
+                    Persona g = new Persona();
+                    g.setNombre(row.getString("nombre"));
+                    lista.add(g);
 
                 }
             } catch (JSONException e){

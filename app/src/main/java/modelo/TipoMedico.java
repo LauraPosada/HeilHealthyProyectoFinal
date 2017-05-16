@@ -14,6 +14,8 @@ public class TipoMedico {
         this.nombre = nombre;
     }
 
+
+
     public int getId() {
         return id;
     }
