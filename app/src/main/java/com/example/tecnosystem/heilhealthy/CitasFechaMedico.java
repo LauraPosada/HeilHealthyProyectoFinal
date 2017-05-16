@@ -4,6 +4,8 @@ import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
@@ -32,6 +34,8 @@ public class CitasFechaMedico extends AppCompatActivity {
 
     String enlaceLista;
 
+    static String fechaDeCita;
+
     HttpConecction conecction;
 
     List<CitaMedica> listaCItasMedicas;
@@ -49,7 +53,21 @@ public class CitasFechaMedico extends AppCompatActivity {
 
         conecction = new HttpConecction();
         cargarCombo();
-        cargarLista();
+
+        citaFecha.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                CitaMedica cit=listaCItasMedicas.get(position);
+                cargarLista(cit.getFecha_cita());
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
+
+        });
 
     }
 
@@ -106,10 +124,10 @@ public class CitasFechaMedico extends AppCompatActivity {
                     CitaMedica g = new CitaMedica();
 
                     g.setId(Integer.parseInt(row.getString("id")));
-                  String fecha = row.getString("fecha_cita");
-                 //   SimpleDateFormat formato = new SimpleDateFormat("aaaa-mm-dd");
-                   // Date fech=formato.parse(fecha);
-                    g.setFecha_cita(fecha);
+                    fechaDeCita = row.getString("fecha_cita");
+                    //   SimpleDateFormat formato = new SimpleDateFormat("aaaa-mm-dd");
+                    // Date fech=formato.parse(fecha);
+                    g.setFecha_cita(fechaDeCita);
                     lista.add(g);
                 }
             } catch (JSONException e) {
@@ -120,10 +138,13 @@ public class CitasFechaMedico extends AppCompatActivity {
 
     }
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////
 
-    public void cargarLista() {
-        enlaceLista = "http://" + General.getIpServidor() + "/HealHealthy/buscarCitaFecha.php?fechaCita='2017-06-05'";
+
+
+    public void cargarLista(String fec) {
+        enlaceLista = "http://" + General.getIpServidor()
+                + "/HealHealthy/buscarCitaFecha.php?fechaCita='" + fec + "'";
         new hiloCItaFecha().execute(enlaceLista);
     }
 

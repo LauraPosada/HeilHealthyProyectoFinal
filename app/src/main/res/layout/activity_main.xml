@@ -4,44 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fondoapp"
+    android:background="@drawable/fon"
     android:orientation="vertical"
     android:weightSum="1"
     tools:context="com.example.tecnosystem.heilhealthy.MainActivity">
 
-    <LinearLayout
+    <ImageView
+        android:id="@+id/imageView3"
         android:layout_width="match_parent"
-        android:layout_height="74dp"
-        android:layout_weight="0.18">
-
-        <TableRow
-            android:layout_width="208dp"
-
-            android:layout_height="match_parent">
-
-
-            <TextView
-                android:id="@+id/textView5"
-                style="@style/Titulo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="BIENVENIDOS A HEALHEALTHY" />
-
-        </TableRow>
-
-        <ImageView
-            android:id="@+id/imageView"
-            style="@style/Logo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/logo" />
-
-    </LinearLayout>
+        android:layout_height="89dp"
+        android:layout_weight="0.01"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/logo_e" />
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="24dp" />
+        android:layout_height="wrap_content"
+        android:layout_weight="0.41" />
 
     <EditText
         android:id="@+id/etUsuarioLogin"
@@ -49,8 +28,9 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Nombre de usuario"
-        android:textAlignment="center"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:text="laura"
+        android:textAlignment="center" />
 
     <Space
         android:layout_width="match_parent"
@@ -62,8 +42,9 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Contraseña"
-        android:textAlignment="center"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:text="1"
+        android:textAlignment="center" />
 
 
     <Space
@@ -83,7 +64,7 @@
     <Space
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.14" />
+        android:layout_weight="0.04" />
 
     <Button
         android:id="@+id/bntRegistrar"

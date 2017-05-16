@@ -111,6 +111,6 @@ public class CitaMedica implements Serializable{
 
     @Override
     public String toString() {
-        return  id+" | " +fecha_cita;
+        return  fecha_cita;
     }
 }
