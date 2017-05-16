@@ -77,17 +77,19 @@ public class MainActivity extends AppCompatActivity {
                     General.setUsuLogeado(usuario);
                     i.putExtra("nombreUsuario", usuario);
                     i.putExtra("contrasena", contrasena);
-                    i.putExtra("id",idUsuario);
+                    General.setCedulaLogeado(idUsuario);
                     startActivity(i);
                 }else if(tipoUs.equals("Medico")){
                     Intent i = new Intent(getApplicationContext(), InicioMedico.class);
                     i.putExtra("nombreUsuario", usuario);
                     i.putExtra("contrasena", contrasena);
+                    General.setCedulaLogeado(idUsuario);
                     startActivity(i);
                 }else if(tipoUs.equals("adm")){
                     Intent i = new Intent(getApplicationContext(), InicioAdm.class);
                     i.putExtra("nombreUsuario", usuario);
                     i.putExtra("contrasena", contrasena);
+                    General.setCedulaLogeado(idUsuario);
                     startActivity(i);
                 }else{
                     Toast.makeText(getApplicationContext(), "Usuario o contraseña incorrecto", Toast.LENGTH_LONG).show();

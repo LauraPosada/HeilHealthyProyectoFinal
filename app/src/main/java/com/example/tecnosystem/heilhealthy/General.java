@@ -6,7 +6,7 @@ package com.example.tecnosystem.heilhealthy;
 
 public class General {
 
-    public  static final String ipServidor = "192.168.27.188";
+    public  static final String ipServidor = "192.168.24.163";
 
     public static String getIpServidor() {
         return ipServidor;
@@ -20,5 +20,15 @@ public class General {
 
     public static void setUsuLogeado(String usuLogeado) {
         General.usuLogeado = usuLogeado;
+    }
+
+    public static  String cedulaLogeado;
+
+    public static String getCedulaLogeado() {
+        return cedulaLogeado;
+    }
+
+    public static void setCedulaLogeado(String cedulaLogeado) {
+        General.cedulaLogeado = cedulaLogeado;
     }
 }

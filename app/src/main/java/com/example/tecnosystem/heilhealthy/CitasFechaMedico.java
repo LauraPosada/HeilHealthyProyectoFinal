@@ -57,7 +57,7 @@ public class CitasFechaMedico extends AppCompatActivity {
         citaFecha.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                CitaMedica cit=listaCItasMedicas.get(position);
+                CitaMedica cit = listaCItasMedicas.get(position);
                 cargarLista(cit.getFecha_cita());
 
             }
@@ -73,7 +73,7 @@ public class CitasFechaMedico extends AppCompatActivity {
 
 
     public void cargarCombo() {
-        enlace = "http://" + General.getIpServidor() + "/HealHealthy/buscarCitaMedico.php?idUsuario=1097";
+        enlace = "http://" + General.getIpServidor() + "/HealHealthy/buscarCitaMedico.php?idUsuario=" + General.getCedulaLogeado();
         new hiloCIta().execute(enlace);
     }
 
@@ -139,7 +139,6 @@ public class CitasFechaMedico extends AppCompatActivity {
     }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
-
 
 
     public void cargarLista(String fec) {
