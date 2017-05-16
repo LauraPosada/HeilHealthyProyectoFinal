@@ -25,7 +25,8 @@
         <activity android:name=".ListaCitas" />
         <activity android:name=".InicioMedico" />
         <activity android:name=".InicioAdm" />
-        <activity android:name=".InicioPaciente"></activity>
+        <activity android:name=".InicioPaciente" />
+        <activity android:name=".CitasFechaMedico"></activity>
     </application>
 
 </manifest>
