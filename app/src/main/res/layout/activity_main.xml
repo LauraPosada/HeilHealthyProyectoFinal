@@ -43,36 +43,26 @@
         android:layout_width="match_parent"
         android:layout_height="24dp" />
 
-    <TextView
-        android:id="@+id/tvUsuario"
-        android:layout_width="match_parent"
-        android:layout_height="34dp"
-        android:text="   Usuario"
-        android:textSize="18sp" />
-
     <EditText
         android:id="@+id/etUsuarioLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:hint="Nombre de usuario"
+        android:textAlignment="center"
         android:inputType="textPersonName" />
 
     <Space
         android:layout_width="match_parent"
         android:layout_height="20dp" />
 
-    <TextView
-        android:id="@+id/tvPassword"
-        android:layout_width="match_parent"
-        android:layout_height="34dp"
-        android:text="   Password"
-        android:textSize="18sp" />
-
     <EditText
         android:id="@+id/etPasswordLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:hint="Contraseña"
+        android:textAlignment="center"
         android:inputType="textPassword" />
 
 
