@@ -32,6 +32,14 @@
 
     <style name="Combo">
         <item name="android:background">#ff0099cc</item>
+       <!-- <item name="android:paddingStart">70dip</item>-->
+    </style>
+
+    <style name="texta">
+        <item name="android:textSize">14dp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:editTextColor">#ff000000</item>
+
     </style>
 
 </resources>

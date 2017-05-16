@@ -7,6 +7,8 @@ import android.view.View;
 
 public class InicioPaciente extends AppCompatActivity {
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -14,7 +16,9 @@ public class InicioPaciente extends AppCompatActivity {
     }
 
     public void cita(View v){
+
         Intent i =  new Intent(this,Ingresar.class);
+
         startActivity(i);
     }
 }

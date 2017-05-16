@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -24,6 +25,8 @@ import modelo.Sede;
 import modelo.TipoEps;
 
 public class Ingresar extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+
+    TextView usu;
 
     Spinner spHorarioFecha;
     String[] horas = {"Seleccione","7:00 am","7:30 am"};
@@ -41,6 +44,7 @@ public class Ingresar extends AppCompatActivity implements AdapterView.OnItemSel
 
         spHorarioFecha = (Spinner) findViewById(R.id.spHorario);
         spSedess =(Spinner) findViewById(R.id.spSede);
+        usu = (TextView) findViewById(R.id.usu);
 
         ArrayAdapter<String>adaptador = new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item,horas);
 
@@ -49,6 +53,12 @@ public class Ingresar extends AppCompatActivity implements AdapterView.OnItemSel
 
         connection = new HttpConecction();
         cargarSedes();
+
+
+        String usuario = General.getUsuLogeado();
+
+        usu.setText(usuario);
+
     }
 
     public void cargarSedes(){

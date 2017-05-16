@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.tecnosystem.heilhealthy.Ingresar"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -18,15 +20,37 @@
             android:weightSum="1"
             tools:context="com.example.tecnosystem.proyectofinalhospital.Ingresar">
 
-            <Spinner
-                style="@style/Combo"
-                android:id="@+id/spSede"
+            <TextView
+                android:id="@+id/usu"
                 android:layout_width="match_parent"
-                android:layout_height="39dp" />
+                android:layout_height="wrap_content"
+                android:text="TextView" />
 
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="22dp" />
+
+            <TextView
+                android:id="@+id/textView8"
+                style="@style/texta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sede:"
+                android:textColor="@android:color/background_dark" />
+
+            <Spinner
+                android:id="@+id/spSede"
+                style="@style/Combo"
+                android:layout_width="match_parent"
+                android:layout_height="39dp" />
+
+            <TextView
+                android:id="@+id/textView10"
+                style="@style/texta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Especialista:"
+                android:textColor="@android:color/background_dark" />
 
             <Spinner
                 style="@style/Combo"
@@ -34,9 +58,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="39dp" />
 
-            <Space
+            <TextView
+                android:id="@+id/textView9"
+                style="@style/texta"
                 android:layout_width="match_parent"
-                android:layout_height="26dp" />
+                android:layout_height="wrap_content"
+                android:text="Hora:"
+                android:textColor="@android:color/background_dark" />
 
             <Spinner
                 style="@style/Combo"

@@ -74,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
 
                 if(tipoUs.equals("Paciente")) {
                     Intent i = new Intent(getApplicationContext(), InicioPaciente.class);
+                    General.setUsuLogeado(usuario);
                     i.putExtra("nombreUsuario", usuario);
                     i.putExtra("contrasena", contrasena);
                     i.putExtra("id",idUsuario);

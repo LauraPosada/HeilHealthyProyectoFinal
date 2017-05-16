@@ -6,9 +6,19 @@ package com.example.tecnosystem.heilhealthy;
 
 public class General {
 
-    public  static final String ipServidor = "192.168.0.13";
+    public  static final String ipServidor = "192.168.27.188";
 
     public static String getIpServidor() {
         return ipServidor;
+    }
+
+    public static String usuLogeado;
+
+    public static String getUsuLogeado() {
+        return usuLogeado;
+    }
+
+    public static void setUsuLogeado(String usuLogeado) {
+        General.usuLogeado = usuLogeado;
     }
 }

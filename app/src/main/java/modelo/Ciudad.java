@@ -1,10 +1,12 @@
 package modelo;
 
+import java.io.Serializable;
+
 /**
  * Created by oscar on 20/04/17.
  */
 
-public class Ciudad {
+public class Ciudad implements Serializable{
 
     private int id;
     private Departamento departamento;
@@ -14,6 +16,9 @@ public class Ciudad {
         this.id = id;
         this.departamento = departamento;
         this.nombre = nombre;
+    }
+
+    public Ciudad() {
     }
 
     public int getId() {
@@ -38,5 +43,10 @@ public class Ciudad {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    @Override
+    public String toString() {
+        return nombre;
     }
 }

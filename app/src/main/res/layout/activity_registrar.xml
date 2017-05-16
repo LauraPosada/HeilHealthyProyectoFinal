@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.tecnosystem.heilhealthy.Registrar"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -14,193 +16,171 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:weightSum="1">
 
-            <TableLayout
+            <TextView
+                style="@style/texta"
+                android:id="@+id/tvNombrePa"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content"
+                android:text="Nombre"
+                android:textColor="@android:color/background_dark"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
+            <EditText
+                android:id="@+id/etNombrePacienteRegistro"
+                style="@style/texta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName" />
 
-                    <TextView
-                        android:id="@+id/tvNombrePa"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Nombre"
-                        android:textColor="@android:color/background_dark"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
+            <TextView
+                style="@style/texta"
+                android:id="@+id/tvApellidoRegistro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Apellido"
+                android:textColor="@android:color/background_dark"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
-                    <EditText
-                        android:id="@+id/etIdPacienteRegistro"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:inputType="textPersonName" />
-                </TableRow>
+            <EditText
+                style="@style/texta"
+                android:id="@+id/etApellidoRegistro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName" />
 
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+            <TextView
+                style="@style/texta"
+                android:id="@+id/tvIdentificacion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Identificacion"
+                android:textColor="@android:color/background_dark"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
-                    <TextView
-                        android:id="@+id/tvApellidoRegistro"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Apellido"
-                        android:textColor="@android:color/background_dark"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
+            <EditText
+                style="@style/texta"
+                android:id="@+id/etIdentificacionRegistro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName" />
 
-                    <EditText
-                        android:id="@+id/etApellidoRegistro"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:inputType="textPersonName" />
-                </TableRow>
+            <TextView
+                style="@style/texta"
+                android:id="@+id/tvEmailRegistro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Email"
+                android:textColor="@android:color/background_dark"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+            <EditText
+                style="@style/texta"
+                android:id="@+id/etEmailRegistro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName" />
 
-                    <TextView
-                        android:id="@+id/tvIdentificacion"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Identificacion"
-                        android:textColor="@android:color/background_dark"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
+            <TextView
+                style="@style/texta"
+                android:id="@+id/tvFechaNacRegistro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Fecha Nacimiento"
+                android:textColor="@android:color/background_dark"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
-                    <EditText
-                        android:id="@+id/etIdentificacionRegistro"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:inputType="textPersonName" />
-                </TableRow>
+            <EditText
+                style="@style/texta"
+                android:id="@+id/etFechaNacRegistro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName" />
 
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+            <TextView
+                style="@style/texta"
+                android:id="@+id/tvIngresosRegistro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ingresos"
+                android:textColor="@android:color/background_dark"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
-                    <TextView
-                        android:id="@+id/tvEmailRegistro"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Email"
-                        android:textColor="@android:color/background_dark"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
+            <EditText
+                style="@style/texta"
+                android:id="@+id/etIngresosRegistro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName" />
 
-                    <EditText
-                        android:id="@+id/etEmailRegistro"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:inputType="textPersonName" />
-                </TableRow>
+            <TextView
+                style="@style/texta"
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Eps"
+                android:textColor="@android:color/background_dark"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+            <Spinner
 
-                    <TextView
-                        android:id="@+id/tvFechaNacRegistro"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Fecha Nacimiento"
-                        android:textColor="@android:color/background_dark"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
+                android:id="@+id/spinnerEps"
+                style="@style/Combo"
+                android:layout_width="250dp"
+                android:layout_height="30dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="0.31"
+                />
 
-                    <EditText
-                        android:id="@+id/etFechaNacRegistro"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:inputType="textPersonName" />
-                </TableRow>
+            <TextView
+                style="@style/texta"
+                android:id="@+id/tvGeneroRegistro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Genero"
+                android:textColor="@android:color/background_dark"
+                android:textSize="18sp"
+                android:textStyle="bold"
+               />
 
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+            <Spinner
+                style="@style/Combo"
+                android:id="@+id/spGeneroRegistro"
+                android:layout_width="250dp"
+                android:layout_height="30dp"
+                android:layout_marginBottom="10dp" />
 
-                    <TextView
-                        android:id="@+id/tvIngresosRegistro"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Ingresos"
-                        android:textColor="@android:color/background_dark"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
+            <TextView
+                android:id="@+id/textView7"
+                style="@style/texta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ciudad"
+                android:textColor="@android:color/background_dark"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
-                    <EditText
-                        android:id="@+id/etIngresosRegistro"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:inputType="textPersonName" />
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <TextView
-                        android:id="@+id/textView2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Eps"
-                        android:textColor="@android:color/background_dark"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-                    <Spinner
-                        android:id="@+id/spinnerEps"
-                        android:layout_width="match_parent"
-                        android:layout_height="30dp"
-                        android:layout_marginBottom="10dp"
-                        android:background="@android:color/holo_blue_dark" />
-
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <TextView
-                        android:id="@+id/tvGeneroRegistro"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Genero"
-                        android:textColor="@android:color/background_dark"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <CheckBox
-                            android:id="@+id/checkBox5"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="F" />
-
-                        <CheckBox
-                            android:id="@+id/checkBox6"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="M" />
-                    </TableRow>
-
-                </TableRow>
-            </TableLayout>
+            <Spinner
+                style="@style/Combo"
+                android:id="@+id/spCiudadRegistro"
+                android:layout_width="250dp"
+                android:layout_height="30dp"
+                android:layout_marginBottom="10dp" />
 
             <Space
                 android:layout_width="match_parent"
