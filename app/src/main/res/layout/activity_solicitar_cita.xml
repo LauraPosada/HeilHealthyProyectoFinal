@@ -16,170 +16,159 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <EditText
+            <TextView
+
                 android:id="@+id/editText2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName" />
+                android:enabled="false"
+                android:text="TextView"
+                android:textAlignment="center"
+                android:textColor="@android:color/background_dark"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:enabled="false" />
+
+
 
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.14" />
 
-            <TableLayout
+            <TextView
+                style="@style/textos"
+                android:id="@+id/tvIdPaciente"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content"
+                android:text="Identificacion"
+                />
 
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
+            <EditText
+                android:id="@+id/etIdPaciente"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName" />
 
-                    <TextView
-                        android:id="@+id/tvIdPaciente"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Identificacion"
-                        android:textColor="@android:color/background_dark"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
+            <TextView
+                android:id="@+id/tvMedico"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Medico"
+                style="@style/textos"/>
 
-                    <EditText
-                        android:id="@+id/etIdPaciente"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:inputType="textPersonName" />
-                </TableRow>
+            <EditText
+                android:id="@+id/etMedico"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName" />
 
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/tvTipoCita"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tipo Cita"
+                style="@style/textos"/>
 
-                    <TextView
-                        android:id="@+id/tvMedico"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Medico"
-                        android:textColor="@android:color/background_dark"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
+            <TextView
+                android:id="@+id/tvEstadoCita"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Estado Cita"
+                style="@style/textos"/>
 
-                    <EditText
-                        android:id="@+id/etMedico"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:inputType="textPersonName" />
-                </TableRow>
+            <EditText
+                android:id="@+id/etEstadoCita"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName" />
 
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/tvDisponibilidad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Disponibilidad"
+                style="@style/textos"/>
 
-                    <TextView
-                        android:id="@+id/tvTipoCita"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Tipo Cita"
-                        android:textColor="@android:color/background_dark"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
+            <EditText
+                android:id="@+id/etDisponibilidad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName" />
 
-                    <EditText
-                        android:id="@+id/etTipoCita"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:inputType="textPersonName" />
-                </TableRow>
+            <TextView
+                android:id="@+id/tvValorConsulta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Valor Consulta"
+                style="@style/textos" />
 
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+            <EditText
+                android:id="@+id/etValor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName" />
 
-                    <TextView
-                        android:id="@+id/tvEstadoCita"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Estado Cita"
-                        android:textColor="@android:color/background_dark"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
+            <TextView
+                android:id="@+id/tvDescripcion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Descripcion"
+                style="@style/textos" />
 
-                    <EditText
-                        android:id="@+id/etEstadoCita"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:inputType="textPersonName" />
-                </TableRow>
+            <EditText
+                android:id="@+id/etDescripcion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName" />
 
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/tvSedeCapturada"
+                style="@style/textos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sede" />
 
-                    <TextView
-                        android:id="@+id/tvDisponibilidad"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Disponibilidad"
-                        android:textColor="@android:color/background_dark"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
+            <EditText
+                android:id="@+id/etSedeCap"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName" />
 
-                    <EditText
-                        android:id="@+id/etDisponibilidad"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:inputType="textPersonName" />
-                </TableRow>
+            <TextView
+                android:id="@+id/tvEspecialistaCap"
+                style="@style/textos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Especialista" />
 
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+            <EditText
+                android:id="@+id/etEspecialistaCap"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName" />
 
-                    <TextView
-                        android:id="@+id/tvValorConsulta"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Valor Consulta"
-                        android:textColor="@android:color/background_dark"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
+            <TextView
+                android:id="@+id/tvHoraCap"
+                style="@style/textos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hora" />
 
-                    <EditText
-                        android:id="@+id/etValor"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:inputType="textPersonName" />
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <TextView
-                        android:id="@+id/tvDescripcion"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Descripcion"
-                        android:textColor="@android:color/background_dark"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-                    <EditText
-                        android:id="@+id/etDescripcion"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:inputType="textPersonName" />
-                </TableRow>
-            </TableLayout>
+            <EditText
+                android:id="@+id/etHoraCap"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName" />
 
             <Button
                 android:id="@+id/bynRegistrarCita"
