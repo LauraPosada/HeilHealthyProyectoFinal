@@ -165,7 +165,8 @@ public class CitasFechaMedico extends AppCompatActivity {
             // Generos
             listaCitaFecha = obtenerDatosJSONFecha(rta);
             if (listaCitaFecha.size() > 0) {
-                ArrayAdapter<CitaMedica> adaptador = new ArrayAdapter<CitaMedica>(getApplicationContext(), android.R.layout.simple_list_item_1, listaCitaFecha);
+                ArrayAdapter<CitaMedica> adaptador = new ArrayAdapter<CitaMedica>(getApplicationContext()
+                        , android.R.layout.simple_list_item_1, listaCitaFecha);
                 lisCitaFecha.setAdapter(adaptador);
             } else {
                 Toast.makeText(getApplicationContext(), "ERROR", Toast.LENGTH_SHORT).show();
@@ -193,10 +194,10 @@ public class CitasFechaMedico extends AppCompatActivity {
                     CitaMedica g = new CitaMedica();
 
                     g.setId(Integer.parseInt(row.getString("id")));
-                    String fecha = row.getString("fecha_cita");
+                    String nombreUs = row.getString("nombre");
                     //   SimpleDateFormat formato = new SimpleDateFormat("aaaa-mm-dd");
                     // Date fech=formato.parse(fecha);
-                    g.setFecha_cita(fecha);
+                    g.setFecha_cita(nombreUs);
                     lista.add(g);
                 }
             } catch (JSONException e) {

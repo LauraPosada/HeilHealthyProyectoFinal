@@ -17,4 +17,9 @@ public class InicioMedico extends AppCompatActivity {
         Intent i = new Intent(this, CitasFechaMedico.class);
         startActivity(i);
     }
+
+    public void irCitaPaciente(View v){
+        Intent i = new Intent(this, CitasPorPaciente.class);
+        startActivity(i);
+    }
 }
