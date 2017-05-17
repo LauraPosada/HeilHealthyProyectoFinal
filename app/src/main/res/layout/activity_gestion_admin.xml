@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:orientation="vertical"
+android:layout_height="match_parent"
+tools:context="com.example.tecnosystem.heilhealthy.GestionAdmin">
+
+<Button
+    android:id="@+id/btnRegistroAdmin"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:onClick="registroAdmin"
+    android:layout_margin="16dp"
+    android:text="Registrar Administrador" />
+
+<Button
+    android:id="@+id/btnBuscarAdmin"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:onClick="buscarAdmin"
+    android:layout_margin="16dp"
+    android:text="Buscar Administrador" />
+
+<Button
+    android:id="@+id/btnListarAdmin"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:onClick="listarAdmin"
+    android:layout_margin="16dp"
+    android:text="Listar Administradores" />
+
+
+</LinearLayout>

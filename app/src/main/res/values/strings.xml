@@ -24,7 +24,7 @@
     <string name="Descripcion">Descripcion</string>
     <string name="Bienvenido">BIENVENIDO USUARIO</string>
     <string name="otras">Otras opciones acerca de la cita</string>
-
+    <string name="mensajeUsuario">Bienvenido %s</string>
     <string name="Nombre">Nombre</string>
     <string name="Apellido">Apellido</string>
     <string name="Email">Correo</string>

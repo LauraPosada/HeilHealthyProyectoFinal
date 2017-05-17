@@ -85,9 +85,9 @@ public class MainActivity extends AppCompatActivity {
                     i.putExtra("contrasena", contrasena);
                     General.setCedulaLogeado(idUsuario);
                     startActivity(i);
-                }else if(tipoUs.equals("adm")){
-                    Intent i = new Intent(getApplicationContext(), InicioAdm.class);
-                    i.putExtra("nombreUsuario", usuario);
+                }else if(tipoUs.equals("Administrador")){
+                    Intent i = new Intent(getApplicationContext(),InicioAdmin.class);
+                    i.putExtra("nombreUsuario",usuario);
                     i.putExtra("contrasena", contrasena);
                     General.setCedulaLogeado(idUsuario);
                     startActivity(i);
