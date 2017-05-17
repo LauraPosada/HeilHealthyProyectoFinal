@@ -6,7 +6,7 @@ package com.example.tecnosystem.heilhealthy;
 
 public class General {
 
-    public  static final String ipServidor = "192.168.24.163";
+    public  static final String ipServidor = "192.168.137.93";
 
     public static String getIpServidor() {
         return ipServidor;

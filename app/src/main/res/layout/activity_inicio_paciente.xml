@@ -4,26 +4,74 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.tecnosystem.heilhealthy.InicioPaciente"
-    android:orientation="vertical">
+    android:background="@drawable/fon"
+    android:orientation="vertical"
+    android:weightSum="1"
+    tools:context="com.example.tecnosystem.heilhealthy.InicioPaciente">
+
+    <TextView
+        android:id="@+id/textView11"
+        style="@style/us"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:background="@drawable/azul_claro"
+        android:text="BIENVENIDO USUARIO"
+        android:textAlignment="center"
+        android:textColor="@android:color/background_dark"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/twUsuario"
+        style="@style/us"
+        android:layout_width="match_parent"
+        android:layout_height="43dp"
+        android:background="@drawable/azul_claro"
+        android:textAlignment="center"
+        android:textColor="@android:color/background_dark"
+        android:textSize="30sp" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.46" />
 
     <Button
         android:id="@+id/button6"
+        style="@style/btnn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="cita"
         android:text="Disponibilidad de citas"
-        android:onClick="cita"/>
+
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="35dp"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.07" />
 
     <Button
         android:id="@+id/button7"
+        style="@style/btnn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="35dp"
         android:text="Consultar Historial de citas" />
 
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.05" />
+
     <Button
+        style="@style/btnn"
         android:id="@+id/button8"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Consultar cedes por ciudad" />
+        android:text="Consultar cedes por ciudad"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="35dp"/>
 
 </LinearLayout>

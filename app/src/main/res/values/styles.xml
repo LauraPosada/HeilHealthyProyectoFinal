@@ -42,4 +42,17 @@
 
     </style>
 
+    <style name="btnn">
+
+        <item name="android:background">#ff99cc00</item>
+        <item name="android:textColor">#ffffffff</item>
+
+    </style>
+
+    <style name="us">
+
+        <item name="android:background">#D4ECF1</item>
+
+    </style>
+
 </resources>
