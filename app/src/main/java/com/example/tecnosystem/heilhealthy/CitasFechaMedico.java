@@ -22,7 +22,10 @@ import java.util.Date;
 import java.util.List;
 
 import HttpConecction.HttpConecction;
+import modelo.Agenda;
 import modelo.CitaMedica;
+import modelo.Paciente;
+import modelo.Persona;
 
 public class CitasFechaMedico extends AppCompatActivity {
 
@@ -34,11 +37,9 @@ public class CitasFechaMedico extends AppCompatActivity {
 
     String enlaceLista;
 
-    static String fechaDeCita;
-
     HttpConecction conecction;
 
-    List<CitaMedica> listaCItasMedicas;
+    List<String> listaCItasMedicas;
 
     List<CitaMedica> listaCitaFecha;
 
@@ -57,10 +58,9 @@ public class CitasFechaMedico extends AppCompatActivity {
         citaFecha.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                CitaMedica cit = listaCItasMedicas.get(position);
-                cargarLista(cit.getFecha_cita());
-
-            }
+                //CitaMedica cit = listaCItasMedicas.get(position);
+               // Log.e("FECHA ",listaCItasMedicas.get(position).getAgenda().getFecha_cita());
+                cargarLista(listaCItasMedicas.get(position));            }
 
             @Override
             public void onNothingSelected(AdapterView<?> parentView) {
@@ -96,7 +96,7 @@ public class CitasFechaMedico extends AppCompatActivity {
             // Generos
             listaCItasMedicas = obtenerDatosJSON(rta);
             if (listaCItasMedicas.size() > 0) {
-                ArrayAdapter<CitaMedica> adaptador = new ArrayAdapter<CitaMedica>(getApplicationContext(), android.R.layout.simple_spinner_item, listaCItasMedicas);
+                ArrayAdapter<String> adaptador = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, listaCItasMedicas);
                 citaFecha.setAdapter(adaptador);
             } else {
                 Toast.makeText(getApplicationContext(), "ERROR", Toast.LENGTH_SHORT).show();
@@ -109,26 +109,28 @@ public class CitasFechaMedico extends AppCompatActivity {
          * @param rta es las respuesta json
          * @return
          */
-        public List<CitaMedica> obtenerDatosJSON(String rta) {
-            Log.e("Eps JSON", rta);
+        public List<String> obtenerDatosJSON(String rta) {
+            Log.e("cita JSON", rta);
             // La lista de generos a retornar
-            List<CitaMedica> lista = new ArrayList<>();
+            List<String> lista = new ArrayList<>();
             try {
-                /**
-                 * accedemos al json como array, ya que estamos 100% seguros de que lo que devuelve es un array
-                 * y no un objeto.
-                 */
+
                 JSONArray json = new JSONArray(rta);
                 for (int i = 0; i < json.length(); i++) {
                     JSONObject row = json.getJSONObject(i);
-                    CitaMedica g = new CitaMedica();
+                   // CitaMedica g = new CitaMedica();
 
+                    /**
                     g.setId(Integer.parseInt(row.getString("id")));
-                    fechaDeCita = row.getString("fecha_cita");
-                    //   SimpleDateFormat formato = new SimpleDateFormat("aaaa-mm-dd");
-                    // Date fech=formato.parse(fecha);
-                    g.setFecha_cita(fechaDeCita);
-                    lista.add(g);
+                    Agenda age = new Agenda();
+                    age.setId(Integer.parseInt(row.getString("id_agenda")));
+                     */
+                   // age.setFecha_cita(row.getString("fecha_inicio"));
+
+                   // g.setAgenda(age);
+                  //  lista.add(g);
+                    lista.add(row.getString("fecha_inicio"));
+
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -142,9 +144,11 @@ public class CitasFechaMedico extends AppCompatActivity {
 
 
     public void cargarLista(String fec) {
-        enlaceLista = "http://" + General.getIpServidor()
-                + "/HealHealthy/buscarCitaFecha.php?fechaCita='" + fec + "'";
-        new hiloCItaFecha().execute(enlaceLista);
+       // Toast.makeText(getApplicationContext(), fec, Toast.LENGTH_SHORT).show();
+       enlaceLista = "http://" + General.getIpServidor()
+                 + "/HealHealthy/buscarCitaFecha.php?fechaCita='" + fec + "'";
+
+         new hiloCItaFecha().execute(enlaceLista);
     }
 
     public class hiloCItaFecha extends AsyncTask<String, Float, String> {
@@ -169,7 +173,7 @@ public class CitasFechaMedico extends AppCompatActivity {
                         , android.R.layout.simple_list_item_1, listaCitaFecha);
                 lisCitaFecha.setAdapter(adaptador);
             } else {
-                Toast.makeText(getApplicationContext(), "ERROR", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "ERROR lista", Toast.LENGTH_SHORT).show();
             }
         }
 
@@ -191,13 +195,18 @@ public class CitasFechaMedico extends AppCompatActivity {
                 JSONArray json = new JSONArray(rta);
                 for (int i = 0; i < json.length(); i++) {
                     JSONObject row = json.getJSONObject(i);
+
                     CitaMedica g = new CitaMedica();
 
                     g.setId(Integer.parseInt(row.getString("id")));
-                    String nombreUs = row.getString("nombre");
-                    //   SimpleDateFormat formato = new SimpleDateFormat("aaaa-mm-dd");
-                    // Date fech=formato.parse(fecha);
-                    g.setFecha_cita(nombreUs);
+
+                    Paciente pac = new Paciente();
+                    pac.setCedula(Integer.parseInt(row.getString("cedula")));
+                    pac.setNombre(row.getString("nombre"));
+                    pac.setApellido(row.getString("apellido"));
+
+                    g.setPaciente(pac);
+
                     lista.add(g);
                 }
             } catch (JSONException e) {

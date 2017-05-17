@@ -7,7 +7,7 @@ import java.util.Date;
  * Created by oscar on 20/04/17.
  */
 
-public class CitaMedica implements Serializable{
+public class CitaMedica implements Serializable {
 
     private int id;
     private String motivo_descripcion;
@@ -17,22 +17,10 @@ public class CitaMedica implements Serializable{
     private TipoCita tipo_cita;
     private Medico medico;
     private Paciente paciente;
-    private String fecha_cita;
+    private Agenda agenda;
 
     public CitaMedica() {
 
-    }
-
-    public CitaMedica(int id, String motivo_descripcion, double valor_consulta, String disponibilidad, EstadoCita estado_cita, TipoCita tipo_cita, Medico medico, Paciente paciente, String fecha_cita) {
-        this.id = id;
-        this.motivo_descripcion = motivo_descripcion;
-        this.valor_consulta = valor_consulta;
-        this.disponibilidad = disponibilidad;
-        this.estado_cita = estado_cita;
-        this.tipo_cita = tipo_cita;
-        this.medico = medico;
-        this.paciente = paciente;
-        this.fecha_cita = fecha_cita;
     }
 
     public int getId() {
@@ -99,16 +87,18 @@ public class CitaMedica implements Serializable{
         this.paciente = paciente;
     }
 
-    public String getFecha_cita() {
-        return fecha_cita;
+    public Agenda getAgenda() {
+        return agenda;
     }
 
-    public void setFecha_cita(String fecha_cita) {
-        this.fecha_cita = fecha_cita;
+    public void setAgenda(Agenda agenda) {
+        this.agenda = agenda;
     }
+
 
     @Override
     public String toString() {
-        return  fecha_cita;
+        return  paciente.getNombre() +" " +paciente.getApellido();
+
     }
 }

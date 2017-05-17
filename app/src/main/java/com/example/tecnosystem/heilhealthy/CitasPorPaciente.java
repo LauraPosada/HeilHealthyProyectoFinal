@@ -4,6 +4,7 @@ import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -18,6 +19,7 @@ import java.util.List;
 
 import HttpConecction.HttpConecction;
 import modelo.CitaMedica;
+import modelo.Paciente;
 
 public class CitasPorPaciente extends AppCompatActivity {
 
@@ -35,15 +37,20 @@ public class CitasPorPaciente extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_citas_por_paciente);
-
         cedulaPaciente = (TextView) findViewById(R.id.cedulaPacienteBuscar);
 
         listaCitasPaciente = (ListView) findViewById(R.id.idListaCita);
+
+        conecction = new HttpConecction();
+
     }
 
-    public void cargarLista() {
+    public void cargarLista(View v) {
+
+         Toast.makeText(getApplicationContext(), cedulaPaciente.getText().toString(), Toast.LENGTH_SHORT).show();
         enlace = "http://" + General.getIpServidor()
-                + "/HealHealthy/buscarCitaFecha.php?fechaCita='" + cedulaPaciente + "'";
+                + "/HealHealthy/buscarCitaUsuario.php?idUsuario="+cedulaPaciente.getText().toString();
+
         new hiloCItaFecha().execute(enlace);
     }
 
@@ -69,7 +76,7 @@ public class CitasPorPaciente extends AppCompatActivity {
                         , android.R.layout.simple_list_item_1, listaCita);
                 listaCitasPaciente.setAdapter(adaptador);
             } else {
-                Toast.makeText(getApplicationContext(), "ERROR", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "ERROR lista", Toast.LENGTH_SHORT).show();
             }
         }
 
@@ -80,24 +87,25 @@ public class CitasPorPaciente extends AppCompatActivity {
          * @return
          */
         public List<CitaMedica> obtenerDatosJSONFecha(String rta) {
-            Log.e("Eps JSON", rta);
-            // La lista de generos a retornar
+
             List<CitaMedica> lista = new ArrayList<>();
             try {
-                /**
-                 * accedemos al json como array, ya que estamos 100% seguros de que lo que devuelve es un array
-                 * y no un objeto.
-                 */
+
                 JSONArray json = new JSONArray(rta);
                 for (int i = 0; i < json.length(); i++) {
                     JSONObject row = json.getJSONObject(i);
+
                     CitaMedica g = new CitaMedica();
 
                     g.setId(Integer.parseInt(row.getString("id")));
-                    String nombreUs = row.getString("nombre");
-                    //   SimpleDateFormat formato = new SimpleDateFormat("aaaa-mm-dd");
-                    // Date fech=formato.parse(fecha);
-                    g.setFecha_cita(nombreUs);
+
+                    Paciente pac = new Paciente();
+                    pac.setCedula(Integer.parseInt(row.getString("cedula")));
+                    pac.setNombre(row.getString("nombre"));
+                    pac.setApellido(row.getString("apellido"));
+
+                    g.setPaciente(pac);
+
                     lista.add(g);
                 }
             } catch (JSONException e) {
@@ -107,9 +115,6 @@ public class CitasPorPaciente extends AppCompatActivity {
         }
 
     }
-
-
-
 
 
 }

@@ -11,6 +11,9 @@ public class Paciente extends Persona{
     private TipoEps tipo_eps;
     private NivelIngreso nivel_ingreso;
 
+    public Paciente() {
+    }
+
     public Paciente(int cedula, String nombre, String apellido, String emaill, Date fechaNacimiento, Ciudad ciudad, String genero, double igresos, TipoEps tipo_eps, NivelIngreso nivel_ingreso) {
         super();
         this.tipo_eps = tipo_eps;
