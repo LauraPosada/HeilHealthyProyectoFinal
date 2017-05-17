@@ -59,7 +59,7 @@
                 style="@style/textos"/>
 
             <EditText
-                android:id="@+id/etMedico"
+                android:id="@+id/etMedicoCap"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -71,6 +71,12 @@
                 android:layout_height="wrap_content"
                 android:text="Tipo Cita"
                 style="@style/textos"/>
+
+            <Spinner
+                android:id="@+id/spTipoCita"
+                style="@style/Combo"
+                android:layout_width="match_parent"
+                android:layout_height="39dp" />
 
             <TextView
                 android:id="@+id/tvEstadoCita"
@@ -93,12 +99,11 @@
                 android:text="Disponibilidad"
                 style="@style/textos"/>
 
-            <EditText
-                android:id="@+id/etDisponibilidad"
+            <Spinner
+                android:id="@+id/spDisponibilidad"
+                style="@style/Combo"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName" />
+                android:layout_height="39dp"/>
 
             <TextView
                 android:id="@+id/tvValorConsulta"
@@ -137,20 +142,6 @@
 
             <EditText
                 android:id="@+id/etSedeCap"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName" />
-
-            <TextView
-                android:id="@+id/tvEspecialistaCap"
-                style="@style/textos"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Especialista" />
-
-            <EditText
-                android:id="@+id/etEspecialistaCap"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"

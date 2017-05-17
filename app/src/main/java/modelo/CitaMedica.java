@@ -12,7 +12,7 @@ public class CitaMedica implements Serializable{
     private int id;
     private String motivo_descripcion;
     private double valor_consulta;
-    private boolean disponibilidad;
+    private String disponibilidad;
     private EstadoCita estado_cita;
     private TipoCita tipo_cita;
     private Medico medico;
@@ -23,9 +23,7 @@ public class CitaMedica implements Serializable{
 
     }
 
-    public CitaMedica(int id, String motivo_descripcion, double valor_consulta,
-                      boolean disponibilidad, EstadoCita estado_cita, TipoCita tipo_cita,
-                      Medico medico, Paciente paciente, String fecha_cita) {
+    public CitaMedica(int id, String motivo_descripcion, double valor_consulta, String disponibilidad, EstadoCita estado_cita, TipoCita tipo_cita, Medico medico, Paciente paciente, String fecha_cita) {
         this.id = id;
         this.motivo_descripcion = motivo_descripcion;
         this.valor_consulta = valor_consulta;
@@ -61,11 +59,11 @@ public class CitaMedica implements Serializable{
         this.valor_consulta = valor_consulta;
     }
 
-    public boolean isDisponibilidad() {
+    public String getDisponibilidad() {
         return disponibilidad;
     }
 
-    public void setDisponibilidad(boolean disponibilidad) {
+    public void setDisponibilidad(String disponibilidad) {
         this.disponibilidad = disponibilidad;
     }
 
