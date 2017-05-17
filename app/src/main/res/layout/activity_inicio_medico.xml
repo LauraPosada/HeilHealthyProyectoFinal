@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fondoapp"
+    android:background="@drawable/fon_lis"
     tools:context="com.example.tecnosystem.heilhealthy.InicioMedico"
     android:orientation="vertical">
 
