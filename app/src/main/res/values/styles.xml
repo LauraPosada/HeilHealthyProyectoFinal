@@ -46,7 +46,7 @@
 
         <item name="android:background">#ff99cc00</item>
         <item name="android:textColor">#ffffffff</item>
-
+        FFA4FD6C
     </style>
 
     <style name="us">
@@ -57,6 +57,20 @@
         <item name="android:textColor">#000000</item>
         <item name="android:textSize">18dp</item>
         <item name="android:textStyle">bold</item>
+
+    </style>
+
+    <style name="btnnDos">
+
+        <item name="android:background">#FFA4FD6C</item>
+        <item name="android:textColor">#ffffffff</item>
+
+    </style>
+
+    <style name="btnnTres">
+
+        <item name="android:background">#ff33b5e5</item>
+        <item name="android:textColor">#ffffffff</item>
 
     </style>
 

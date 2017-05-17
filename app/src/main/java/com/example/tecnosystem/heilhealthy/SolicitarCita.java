@@ -109,7 +109,7 @@ public class SolicitarCita extends AppCompatActivity implements AdapterView.OnIt
                     JSONObject row = json.getJSONObject(i);
                     TipoCita g = new TipoCita();
                     g.setId(row.getInt("id"));
-                    g.setNombre(row.getString("nombre"));
+                    g.setNombre(row.getString("nombre_tipo_cita"));
                     lista.add(g);
 
 

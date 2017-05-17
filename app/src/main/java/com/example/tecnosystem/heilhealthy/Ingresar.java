@@ -116,7 +116,7 @@ public class Ingresar extends AppCompatActivity implements AdapterView.OnItemSel
                     JSONObject row = json.getJSONObject(i);
                     Sede g = new Sede();
                     g.setId(row.getInt("id"));
-                    g.setNombre(row.getString("nombre"));
+                    g.setNombre(row.getString("nombre_sede"));
                     g.setLongitud(row.getString("longitud"));
                     g.setLatitud(row.getString("latitud"));
                     lista.add(g);
@@ -200,11 +200,27 @@ public class Ingresar extends AppCompatActivity implements AdapterView.OnItemSel
 
     public void general(View v){
         Intent i = new Intent(this,SolicitarCita.class);
+        Persona elEspecialista = listaMedico.get(spEspe.getSelectedItemPosition());
+        String nom = elEspecialista.getNombre();
+        i.putExtra("nombreEs", nom);
+
+        String elHorario = String.valueOf(spHorarioFecha.getSelectedItem());
+        i.putExtra("ho",elHorario);
+
+        General.setEspecialistaCapturado(nom);
         startActivity(i);
     }
 
     public void especialista(View v){
         Intent i = new Intent(this,SolicitarCita.class);
+        Persona elEspecialista = listaMedico.get(spEspe.getSelectedItemPosition());
+        String nom = elEspecialista.getNombre();
+        i.putExtra("nombreEs", nom);
+
+        String elHorario = String.valueOf(spHorarioFecha.getSelectedItem());
+        i.putExtra("ho",elHorario);
+
+        General.setEspecialistaCapturado(nom);
         startActivity(i);
     }
 
