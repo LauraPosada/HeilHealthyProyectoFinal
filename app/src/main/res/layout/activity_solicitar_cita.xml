@@ -9,11 +9,14 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/fon">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:orientation="vertical">
 
             <TextView
@@ -27,8 +30,7 @@
                 android:textColor="@android:color/background_dark"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                tools:enabled="false" />
-
+                tools:enabled="true" />
 
 
             <Space
@@ -37,12 +39,11 @@
                 android:layout_weight="0.14" />
 
             <TextView
-                style="@style/textos"
                 android:id="@+id/tvIdPaciente"
+                style="@style/textos"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Identificacion"
-                />
+                android:text="@string/Idt" />
 
             <EditText
                 android:id="@+id/etIdPaciente"
@@ -53,64 +54,43 @@
 
             <TextView
                 android:id="@+id/tvMedico"
+                style="@style/textos"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Medico"
-                style="@style/textos"/>
+                android:text="@string/Medico"
+                />
 
             <EditText
                 android:id="@+id/etMedicoCap"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:editable="false"
                 android:ems="10"
+                android:enabled="false"
                 android:inputType="textPersonName" />
 
             <TextView
-                android:id="@+id/tvTipoCita"
+                android:id="@+id/tvHoraCap"
+                style="@style/textos"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Tipo Cita"
-                style="@style/textos"/>
-
-            <Spinner
-                android:id="@+id/spTipoCita"
-                style="@style/Combo"
-                android:layout_width="match_parent"
-                android:layout_height="39dp" />
-
-            <TextView
-                android:id="@+id/tvEstadoCita"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Estado Cita"
-                style="@style/textos"/>
+                android:text="@string/Hora" />
 
             <EditText
-                android:id="@+id/etEstadoCita"
+                android:id="@+id/etHoraCap"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:editable="false"
                 android:ems="10"
+                android:enabled="false"
                 android:inputType="textPersonName" />
-
-            <TextView
-                android:id="@+id/tvDisponibilidad"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Disponibilidad"
-                style="@style/textos"/>
-
-            <Spinner
-                android:id="@+id/spDisponibilidad"
-                style="@style/Combo"
-                android:layout_width="match_parent"
-                android:layout_height="39dp"/>
 
             <TextView
                 android:id="@+id/tvValorConsulta"
+                style="@style/textos"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Valor Consulta"
-                style="@style/textos" />
+                android:text="@string/valor" />
 
             <EditText
                 android:id="@+id/etValor"
@@ -121,10 +101,10 @@
 
             <TextView
                 android:id="@+id/tvDescripcion"
+                style="@style/textos"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Descripcion"
-                style="@style/textos" />
+                android:text="@string/Descripcion" />
 
             <EditText
                 android:id="@+id/etDescripcion"
@@ -134,38 +114,41 @@
                 android:inputType="textPersonName" />
 
             <TextView
-                android:id="@+id/tvSedeCapturada"
+                android:id="@+id/tvEstadoCita"
                 style="@style/textos"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Sede" />
+                android:text="@string/Estado" />
 
-            <EditText
-                android:id="@+id/etSedeCap"
+            <Spinner
+                android:id="@+id/spDisponibilidad"
+                style="@style/Combo"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName" />
+                android:layout_height="39dp" />
 
             <TextView
-                android:id="@+id/tvHoraCap"
+                android:id="@+id/tvTipoCita"
                 style="@style/textos"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Hora" />
+                android:text="@string/TipoC" />
 
-            <EditText
-                android:id="@+id/etHoraCap"
+            <Spinner
+                android:id="@+id/spTipoCita"
+                style="@style/Combo"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName" />
+                android:layout_height="39dp" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="25dp" />
 
             <Button
+                style="@style/btnn"
                 android:id="@+id/bynRegistrarCita"
                 android:layout_width="156dp"
                 android:layout_height="wrap_content"
-                android:text="REGISTRAR" />
+                android:text="@string/Registrar" />
 
             <Space
                 android:layout_width="match_parent"

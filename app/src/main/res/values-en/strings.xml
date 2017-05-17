@@ -1,0 +1,40 @@
+<resources>
+    <string name="Ingresar">Sign in</string>
+    <string name="Registrar">Login</string>
+    <string name="ConsultarCitasF">CONSULT QUOTES BY DATE</string>
+    <string name="ConsultarCitasp">
+CONSULT PATIENT CITATIONS</string>
+    <string name="Disponibilidad">
+AVAILABILITY OF QUOTES</string>
+    <string name="ConsultaH">CONSULT HISTORY QUOTES</string>
+    <string name="ConsultarC">
+CONSULT CEDES BY CITY</string>
+    <string name="Sede">Headquarters</string>
+    <string name="Especialista">Specialist</string>
+    <string name="Hora">hour</string>
+    <string name="Prioritaria">PRIORITY</string>
+    <string name="General">GENERAL</string>
+    <string name="Buscar">Find</string>
+    <string name="Editar">Modific</string>
+    <string name="Idt">Id</string>
+    <string name="Medico">Doctor</string>
+    <string name="TipoC">Quotes Type</string>
+    <string name="Estado">Quote Status</string>
+    <string name="Dispo">Availability</string>
+    <string name="valor">Value Consulting</string>
+    <string name="Descripcion">Description</string>
+    <string name="Bienvenido">WELCOME USER</string>
+    <string name="otras">Other options about the quotes</string>
+
+    <string name="Nombre">Name</string>
+    <string name="Apellido">LastName</string>
+    <string name="Email">Email</string>
+    <string name="fechaN">Fecha Nacimiento</string>
+    <string name="Ingresos">Ingresos</string>
+    <string name="Eps">Eps</string>
+    <string name="Genero">Gender</string>
+    <string name="Ciudad">City</string>
+
+
+
+</resources>

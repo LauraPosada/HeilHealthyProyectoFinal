@@ -1,3 +1,36 @@
 <resources>
     <string name="app_name">HeilHealthy</string>
+
+    <string name="Ingresar">Ingresar</string>
+    <string name="Registrar">Registrar</string>
+    <string name="ConsultarCitasF">CONSULTAR CITAS POR FECHA</string>
+    <string name="ConsultarCitasp">CONSULTAR CITAS POR PACIENTE</string>
+    <string name="Disponibilidad">DISPONIBILIDAD DE CITAS</string>
+    <string name="ConsultaH">CONSULTAR HISTORIAL CITAS</string>
+    <string name="ConsultarC">CONSULTAR CEDES POR CIUDAD</string>
+    <string name="Sede">Sede</string>
+    <string name="Especialista">Especialista</string>
+    <string name="Hora">Hora</string>
+    <string name="Prioritaria">PRIORITARIA</string>
+    <string name="General">General</string>
+    <string name="Buscar">Buscar</string>
+    <string name="Editar">Editar</string>
+    <string name="Idt">Identificacion</string>
+    <string name="Medico">Medico</string>
+    <string name="TipoC">Tipo Cita</string>
+    <string name="Estado">Estado Cita</string>
+    <string name="Dispo">Disponibilidad</string>
+    <string name="valor">Valor Consulta</string>
+    <string name="Descripcion">Descripcion</string>
+    <string name="Bienvenido">BIENVENIDO USUARIO</string>
+    <string name="otras">Otras opciones acerca de la cita</string>
+
+    <string name="Nombre">Nombre</string>
+    <string name="Apellido">Apellido</string>
+    <string name="Email">Correo</string>
+    <string name="fechaN">Fecha Nacimiento</string>
+    <string name="Ingresos">Ingresos</string>
+    <string name="Eps">Eps</string>
+    <string name="Genero">Genero</string>
+    <string name="Ciudad">Ciudad</string>
 </resources>

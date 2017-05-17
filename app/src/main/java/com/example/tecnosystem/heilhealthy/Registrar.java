@@ -108,7 +108,7 @@ cargarEps();
                     JSONObject row = json.getJSONObject(i);
                     TipoEps g = new TipoEps();
                     g.setId(row.getInt("id"));
-                    g.setNombre(row.getString("nombre"));
+                    g.setNombre(row.getString("nombre_eps"));
                     lista.add(g);
                 }
             } catch (JSONException e){
@@ -158,7 +158,7 @@ cargarEps();
                     JSONObject row = json.getJSONObject(i);
                     Ciudad g = new Ciudad();
                     g.setId(row.getInt("id"));
-                    g.setNombre(row.getString("nombre"));
+                    g.setNombre(row.getString("nombre_c"));
                     lista.add(g);
                 }
             } catch (JSONException e){

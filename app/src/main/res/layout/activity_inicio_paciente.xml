@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="42dp"
         android:background="@drawable/azul_claro"
-        android:text="BIENVENIDO USUARIO"
+        android:text="@string/Bienvenido"
         android:textAlignment="center"
         android:textColor="@android:color/background_dark"
         android:textSize="30sp" />
@@ -41,7 +41,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="cita"
-        android:text="Disponibilidad de citas"
+        android:text="@string/Disponibilidad"
 
         android:layout_marginLeft="35dp"
         android:layout_marginRight="35dp"/>
@@ -58,7 +58,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="35dp"
         android:layout_marginRight="35dp"
-        android:text="Consultar Historial de citas" />
+        android:text="@string/ConsultaH" />
 
     <Space
         android:layout_width="match_parent"
@@ -70,7 +70,7 @@
         android:id="@+id/button8"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Consultar cedes por ciudad"
+        android:text="@string/ConsultarC"
         android:layout_marginLeft="35dp"
         android:layout_marginRight="35dp"/>
 

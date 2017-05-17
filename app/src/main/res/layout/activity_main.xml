@@ -32,7 +32,7 @@
         android:ems="10"
         android:hint="Nombre de usuario"
         android:inputType="textPersonName"
-        android:text="bandi"
+        android:text="Laura"
         android:textAlignment="center" />
 
     <Space
@@ -58,15 +58,15 @@
         android:layout_weight="0.18" />
 
     <Button
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
         android:id="@+id/btnIngresar"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:background="@android:color/holo_blue_light"
         android:onClick="validarUsuario"
-        android:text="INGRESAR" />
+        android:text="@string/Ingresar" />
 
     <Space
         android:layout_width="match_parent"
@@ -82,7 +82,7 @@
         android:layout_height="wrap_content"
         android:background="@android:color/holo_green_light"
         android:onClick="registrar"
-        android:text="REGISTAR" />
+        android:text="@string/Registrar" />
 
 
 </LinearLayout>
