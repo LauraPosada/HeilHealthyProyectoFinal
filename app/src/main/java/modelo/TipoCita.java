@@ -14,6 +14,9 @@ public class TipoCita {
         this.nombre = nombre;
     }
 
+    public TipoCita() {
+    }
+
     public int getId() {
         return id;
     }
@@ -28,5 +31,10 @@ public class TipoCita {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    @Override
+    public String toString() {
+        return  nombre ;
     }
 }

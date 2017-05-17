@@ -30,6 +30,7 @@ public class Ingresar extends AppCompatActivity implements AdapterView.OnItemSel
 
     Spinner spEspe;
     String enlaceEspe;
+    Persona persona;
 
     Spinner spHorarioFecha;
     String[] horas = {"Seleccione","7:00 am","7:30 am"};
@@ -41,6 +42,7 @@ public class Ingresar extends AppCompatActivity implements AdapterView.OnItemSel
     HttpConecction connection;
     List<Sede> listaSede;
     List<Persona> listaMedico;
+    String listaHora;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +52,8 @@ public class Ingresar extends AppCompatActivity implements AdapterView.OnItemSel
         spHorarioFecha = (Spinner) findViewById(R.id.spHorario);
         spSedess =(Spinner) findViewById(R.id.spSede);
         spEspe = (Spinner) findViewById(R.id.spEspecialista);
+
+        listaHora = findViewById(R.id.spHorario).toString();
 
 
         ArrayAdapter<String>adaptador = new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item,horas);
@@ -179,7 +183,19 @@ public class Ingresar extends AppCompatActivity implements AdapterView.OnItemSel
 
     public void prioritaria(View v){
         Intent i = new Intent(this,SolicitarCita.class);
+
+        Persona elEspecialista = listaMedico.get(spEspe.getSelectedItemPosition());
+        String nom = elEspecialista.getNombre();
+        i.putExtra("nombreEs", nom);
+
+        String elHorario = String.valueOf(spHorarioFecha.getSelectedItem());
+        i.putExtra("ho",elHorario);
+
+        General.setEspecialistaCapturado(nom);
         startActivity(i);
+
+     //   startActivity(i);
+
     }
 
     public void general(View v){

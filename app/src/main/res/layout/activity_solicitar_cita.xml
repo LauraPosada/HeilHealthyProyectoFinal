@@ -66,24 +66,25 @@
                 android:inputType="textPersonName" />
 
             <TextView
-                android:id="@+id/tvTipoCita"
+                android:id="@+id/tvHoraCap"
+                style="@style/textos"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Tipo Cita"
-                style="@style/textos"/>
+                android:text="Hora" />
 
-            <Spinner
-                android:id="@+id/spTipoCita"
-                style="@style/Combo"
+            <EditText
+                android:id="@+id/etHoraCap"
                 android:layout_width="match_parent"
-                android:layout_height="39dp" />
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName" />
 
             <TextView
                 android:id="@+id/tvEstadoCita"
+                style="@style/textos"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Estado Cita"
-                style="@style/textos"/>
+                android:text="Estado Cita" />
 
             <EditText
                 android:id="@+id/etEstadoCita"
@@ -91,19 +92,6 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName" />
-
-            <TextView
-                android:id="@+id/tvDisponibilidad"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Disponibilidad"
-                style="@style/textos"/>
-
-            <Spinner
-                android:id="@+id/spDisponibilidad"
-                style="@style/Combo"
-                android:layout_width="match_parent"
-                android:layout_height="39dp"/>
 
             <TextView
                 android:id="@+id/tvValorConsulta"
@@ -134,32 +122,30 @@
                 android:inputType="textPersonName" />
 
             <TextView
-                android:id="@+id/tvSedeCapturada"
+                android:id="@+id/tvTipoCita"
                 style="@style/textos"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Sede" />
+                android:text="Tipo Cita" />
 
-            <EditText
-                android:id="@+id/etSedeCap"
+            <Spinner
+                android:id="@+id/spTipoCita"
+                style="@style/Combo"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName" />
+                android:layout_height="39dp" />
 
             <TextView
-                android:id="@+id/tvHoraCap"
+                android:id="@+id/tvDisponibilidad"
                 style="@style/textos"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Hora" />
+                android:text="Disponibilidad" />
 
-            <EditText
-                android:id="@+id/etHoraCap"
+            <Spinner
+                android:id="@+id/spDisponibilidad"
+                style="@style/Combo"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName" />
+                android:layout_height="39dp" />
 
             <Button
                 android:id="@+id/bynRegistrarCita"
