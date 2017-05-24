@@ -74,19 +74,20 @@
         android:layout_marginLeft="35dp"
         android:layout_marginRight="35dp"/>
 
+
     <Space
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.05" />
+        android:layout_weight="0.06" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/idMapa"
         style="@style/btnn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="35dp"
         android:layout_marginRight="35dp"
-        android:onClick="mapa"
-        android:text="VER MAPAS" />
+        android:onClick="irMap"
+        android:text="Map" />
 
 </LinearLayout>

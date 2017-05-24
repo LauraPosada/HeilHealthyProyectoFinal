@@ -131,6 +131,7 @@ public class CitasFechaMedico extends AppCompatActivity {
                   //  lista.add(g);
                     lista.add(row.getString("fecha_inicio"));
 
+
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
