@@ -33,7 +33,7 @@ public class Ingresar extends AppCompatActivity implements AdapterView.OnItemSel
     Persona persona;
 
     Spinner spHorarioFecha;
-    String[] horas = {"Seleccione","7:00 am","7:30 am"};
+    String[] horas = {"Seleccione","7:00 am","7:30 am","8:00 am","8:30 am","9:00 am","9:30 am"};
 
     Spinner spSedess;
     String enlaceSedes;
@@ -68,7 +68,7 @@ public class Ingresar extends AppCompatActivity implements AdapterView.OnItemSel
     }
 
     public void cargarMedicoEspe(){
-        enlaceEspe = "http://"+General.getIpServidor()+"/HealHealthy/buscarEspecialista.php";
+        enlaceEspe = "http://"+General.getIpServidor()+"/HealHealthy/buscarMedicos.php";
         new hiloEspe().execute(enlaceEspe);
     }
 
@@ -194,7 +194,7 @@ public class Ingresar extends AppCompatActivity implements AdapterView.OnItemSel
         General.setEspecialistaCapturado(nom);
         startActivity(i);
 
-     //   startActivity(i);
+     //  startActivity(i);
 
     }
 

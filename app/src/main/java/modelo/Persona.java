@@ -98,6 +98,6 @@ public class Persona implements Serializable{
 
     @Override
     public String toString() {
-        return nombre +" " +apellido;
+        return cedula +"" + nombre + "" + apellido ;
     }
 }

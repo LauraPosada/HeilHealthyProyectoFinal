@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,6 +35,9 @@ public class SolicitarCita extends AppCompatActivity implements AdapterView.OnIt
 
     HttpConecction connection;
     String enlaceTipo;
+
+
+    EditText id,medico,hora,costo,descripcion,estado,tipo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -130,4 +134,7 @@ public class SolicitarCita extends AppCompatActivity implements AdapterView.OnIt
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
+
+
+
 }
