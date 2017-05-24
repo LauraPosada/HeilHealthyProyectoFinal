@@ -27,4 +27,9 @@ public class InicioPaciente extends AppCompatActivity {
 
         startActivity(i);
     }
+
+    public void irMap(View v){
+        Intent i =  new Intent(this,MapsActivity.class);
+        startActivity(i);
+    }
 }

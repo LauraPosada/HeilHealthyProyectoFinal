@@ -8,7 +8,7 @@ import modelo.Persona;
 
 public class General {
 
-    public  static final String ipServidor = "192.168.27.188";
+    public  static final String ipServidor = "192.168.26.241";
 
     public static String getIpServidor() {
         return ipServidor;

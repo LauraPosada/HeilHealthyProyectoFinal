@@ -4,25 +4,57 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fon_lis"
+    android:background="@drawable/fon"
     tools:context="com.example.tecnosystem.heilhealthy.InicioMedico"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:weightSum="1">
+
+    <TextView
+        android:id="@+id/textView11"
+        style="@style/us"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:background="@drawable/azul_claro"
+        android:text="@string/BienvenidoD"
+        android:textAlignment="center"
+        android:textColor="@android:color/background_dark"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/twUsuarioM"
+        style="@style/us"
+        android:layout_width="match_parent"
+        android:layout_height="43dp"
+        android:background="@drawable/azul_claro"
+        android:textAlignment="center"
+        android:textColor="@android:color/background_dark"
+        android:textSize="30sp" />
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="60dp" />
+        android:layout_height="wrap_content"
+        android:layout_weight="0.05"/>
 
     <Button
         android:id="@+id/button2"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@android:color/holo_green_light"
         android:onClick="irCitaFecha"
         android:text="Consultar citas por fecha" />
 
-    <Button
-        android:id="@+id/button3"
+    <Space
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_weight="0.05" />
+
+    <Button
+        android:id="@+id/button3"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_green_light"
         android:onClick="irCitaPaciente"
         android:text="Consultar citas por paciente" />
 </LinearLayout>
