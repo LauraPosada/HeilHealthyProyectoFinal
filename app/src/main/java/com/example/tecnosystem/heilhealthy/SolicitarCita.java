@@ -20,29 +20,43 @@ import java.util.ArrayList;
 import java.util.List;
 
 import HttpConecction.HttpConecction;
+import modelo.EstadoCita;
 import modelo.Persona;
 import modelo.Sede;
 import modelo.TipoCita;
 
 public class SolicitarCita extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
-    TextView usu,espe,horaa;
+    TextView usu,espe,horaa,tipoo,espe2;
     Spinner spDispon;
     String [] dis={"Disponible","No disponible"};
 
-    Spinner sptipoC;
-    List<TipoCita> listaTipoCita;
-
+    Spinner spEstadoCitaC;
+    String enlaceEstado;
+    List<EstadoCita> listaEstadoCita;
     HttpConecction connection;
-    String enlaceTipo;
 
 
-    EditText id,medico,hora,costo,descripcion,estado,tipo;
+    String mierda ;
+    String mierda2;
+
+    EditText id,medico,hora,tipo,costo,descripcion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_solicitar_cita);
+
+        spEstadoCitaC = (Spinner) findViewById(R.id.spEstadpCita);
+
+
+        id = (EditText)findViewById(R.id.etIdPaciente);
+        medico = (EditText)findViewById(R.id.etMedicoCap);
+        hora = (EditText)findViewById(R.id.etHoraCap);
+        tipo = (EditText)findViewById(R.id.etTipoCitaCap);
+        costo = (EditText)findViewById(R.id.etValor);
+        descripcion = (EditText)findViewById(R.id.etDescripcion);
+
 
         usu = (TextView) findViewById(R.id.editText2);
         String usuario = General.getUsuLogeado();
@@ -52,44 +66,62 @@ public class SolicitarCita extends AppCompatActivity implements AdapterView.OnIt
         String especia = General.getEspecialistaCapturado();
         espe.setText((CharSequence) especia);
 
+
         horaa = (TextView) findViewById(R.id.etHoraCap) ;
         Bundle datos = getIntent().getExtras();
         String horarioo = datos.getString("ho");
-
         horaa.setText(horarioo);
+
+
+        tipoo = (TextView) findViewById(R.id.etTipoCitaCap);
+        String tipoC = General.getTipoCitaCaptu();
+        tipoo.setText(tipoC);
+
 
         spDispon = (Spinner) findViewById(R.id.spDisponibilidad);
         ArrayAdapter<String> adaptador = new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item,dis);
         spDispon.setAdapter(adaptador);
         spDispon.setOnItemSelectedListener(this);
 
-        sptipoC = (Spinner) findViewById(R.id.spTipoCita);
+
         connection = new HttpConecction();
 
-        cargarTipoCitas();
+
+        cargarEstado();
     }
 
-    public void cargarTipoCitas(){
-        enlaceTipo = "http://"+General.getIpServidor()+"/HealHealthy/buscarTipoCita.php";
-        new hiloTipoCitas().execute(enlaceTipo);
+
+    public void cargarEstado(){
+        enlaceEstado = "http://"+General.getIpServidor()+"/HealHealthy/buscarEstadoCita.php";
+        new hiloEstado().execute(enlaceEstado);
     }
 
-    public class hiloTipoCitas extends AsyncTask<String,Float,String> {
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
+
+    public class hiloEstado extends AsyncTask<String,Float,String> {
         @Override
         protected void onPreExecute() {super.onPreExecute();}
         @Override
         protected String doInBackground(String... strings) {
-            String rta = connection.enviarDatosGet(enlaceTipo);
+            String rta = connection.enviarDatosGet(enlaceEstado);
             return rta;
         }
         @Override
         protected void onPostExecute(String rta) {
             super.onPostExecute(rta);
-            // Generos
-            listaTipoCita = obtenerDatosJSON(rta);
-            if(listaTipoCita.size()>0){
-                ArrayAdapter<TipoCita> adaptador = new ArrayAdapter<TipoCita>(getApplicationContext(),android.R.layout.simple_spinner_item,listaTipoCita);
-                sptipoC.setAdapter(adaptador);
+
+            listaEstadoCita = obtenerDatosJSON(rta);
+            if(listaEstadoCita.size()>0){
+                ArrayAdapter<EstadoCita> adaptador = new ArrayAdapter<EstadoCita>(getApplicationContext(),android.R.layout.simple_spinner_item,listaEstadoCita);
+                spEstadoCitaC.setAdapter(adaptador);
             }else{
                 Toast.makeText(getApplicationContext(),"ERROR, registre generos en la base de datos",Toast.LENGTH_SHORT).show();
             }
@@ -99,10 +131,10 @@ public class SolicitarCita extends AppCompatActivity implements AdapterView.OnIt
          * @param rta es las respuesta json
          * @return
          */
-        public List<TipoCita> obtenerDatosJSON(String rta){
-            Log.e("Sede JSON",rta);
+        public List<EstadoCita> obtenerDatosJSON(String rta){
+            Log.e("Agenda JSON",rta);
             // La lista de generos a retornar
-            List<TipoCita> lista = new ArrayList<>();
+            List<EstadoCita> lista = new ArrayList<EstadoCita>();
             try{
                 /**
                  * accedemos al json como array, ya que estamos 100% seguros de que lo que devuelve es un array
@@ -111,9 +143,11 @@ public class SolicitarCita extends AppCompatActivity implements AdapterView.OnIt
                 JSONArray json = new JSONArray(rta);
                 for (int i=0; i<json.length(); i++){
                     JSONObject row = json.getJSONObject(i);
-                    TipoCita g = new TipoCita();
+                    EstadoCita g = new EstadoCita();
                     g.setId(row.getInt("id"));
-                    g.setNombre(row.getString("nombre_tipo_cita"));
+                    g.setEstado(row.getString("estado"));
+                    // g.setMedico((Medico) row.get("medico"));
+                    // g.setHora((Hora) row.get("hora"));
                     lista.add(g);
 
 
@@ -125,14 +159,64 @@ public class SolicitarCita extends AppCompatActivity implements AdapterView.OnIt
         }
     }
 
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+    public  void crearCita(View v){
+    //    Toast.makeText(getApplicationContext(),descripcion.getText().toString(),Toast.LENGTH_SHORT).show();
+
+        String dispo = (String) spDispon.getSelectedItem();
+        int estado = spEstadoCitaC.getSelectedItemPosition()+1;
+        enlaceEstado = "http://"+General.getIpServidor()+"/HealHealthy/registrarCita.php?descripcion=" + descripcion.getText().toString()+
+                "&valorConsulta=" + costo.getText().toString() +
+                "&disponibilidad="+dispo+
+                "&idEstado="+estado+
+                "&idTipoCita="+General.getTipoIdCitaCaptu()+
+                "&idUsuario="+id.getText().toString()+
+                "&hora="+General.getHorari();
+
+        Toast.makeText(getApplicationContext(),"yib"+enlaceEstado,Toast.LENGTH_SHORT).show();
+new guardarDatosCita().execute(enlaceEstado);
 
     }
 
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
 
+    class guardarDatosCita extends AsyncTask<String, Float, String> {
+
+        @Override
+        protected String doInBackground(String... params) {
+            String resultado = connection.enviarDatosGet(enlaceEstado);
+            return resultado;
+        }
+
+        @Override
+        protected void onPostExecute(String resultado) {
+            super.onPostExecute(resultado);
+            Log.e("Cadena: ", resultado);
+            int r = obtenerDatosJSON(resultado);
+            if (r > 0) {
+                Toast.makeText(getApplicationContext(), "Registro exitoso", Toast.LENGTH_LONG).show();
+               // Intent i = new Intent(getApplicationContext(),InicioAdmin.class);
+               // startActivity(i);
+            } else {
+                Toast.makeText(getApplicationContext(), "No se pudo completar el registro", Toast.LENGTH_LONG).show();
+            }
+        }
+    }
+
+    public int obtenerDatosJSON(String respuesta) {
+        Log.e("respuesta ", respuesta);
+        int resultado = 0;
+        try {
+            JSONArray json = new JSONArray(respuesta);
+            Log.e("tamaño json", "" + json.length());
+            if (json.length() > 0) {
+                resultado = 1;
+                JSONObject row = json.getJSONObject(0);
+                String resp = row.getString("respuesta");
+                Log.e("respuesta: ", resp);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return resultado;
     }
 
 

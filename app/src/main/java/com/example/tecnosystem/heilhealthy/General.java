@@ -8,7 +8,7 @@ import modelo.Persona;
 
 public class General {
 
-    public  static final String ipServidor = "192.168.26.241";
+    public  static final String ipServidor = "192.168.0.13";
 
     public static String getIpServidor() {
         return ipServidor;
@@ -17,6 +17,36 @@ public class General {
     public static String usuLogeado;
 
     public static String especialistaCapturado;
+
+    public static String tipoCitaCaptu;
+
+    public static String tipoIdCitaCaptu;
+
+    public static String getTipoIdCitaCaptu() {
+        return tipoIdCitaCaptu;
+    }
+
+    public static void setTipoIdCitaCaptu(String tipoIdCitaCaptu) {
+        General.tipoIdCitaCaptu = tipoIdCitaCaptu;
+    }
+
+    public static String horari;
+
+    public static String getHorari() {
+        return horari;
+    }
+
+    public static void setHorari(String horari) {
+        General.horari = horari;
+    }
+
+    public static String getTipoCitaCaptu() {
+        return tipoCitaCaptu;
+    }
+
+    public static void setTipoCitaCaptu(String tipoCitaCaptu) {
+        General.tipoCitaCaptu = tipoCitaCaptu;
+    }
 
     public static String getEspecialistaCapturado() {
         return especialistaCapturado;

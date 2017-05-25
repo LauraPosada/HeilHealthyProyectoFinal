@@ -16,6 +16,7 @@
     <string name="Buscar">Buscar</string>
     <string name="Editar">Editar</string>
     <string name="Idt">Identificacion</string>
+    <string name="Fecha">Fecha-Hora</string>
     <string name="Medico">Medico</string>
     <string name="TipoC">Tipo Cita</string>
     <string name="Estado">Estado Cita</string>

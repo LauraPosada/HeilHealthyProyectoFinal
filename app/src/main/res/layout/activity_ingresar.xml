@@ -60,11 +60,24 @@
                 style="@style/textos"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/Hora"
+                android:text="@string/Fecha"
                 android:textColor="@android:color/background_dark" />
 
             <Spinner
                 android:id="@+id/spHorario"
+                style="@style/Combo"
+                android:layout_width="match_parent"
+                android:layout_height="39dp" />
+
+            <TextView
+                android:id="@+id/tvTipoCita"
+                style="@style/textos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/TipoC" />
+
+            <Spinner
+                android:id="@+id/spTipoCita"
                 style="@style/Combo"
                 android:layout_width="match_parent"
                 android:layout_height="39dp" />

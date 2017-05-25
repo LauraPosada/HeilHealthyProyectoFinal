@@ -14,6 +14,9 @@ public class EstadoCita {
         this.estado = estado;
     }
 
+    public EstadoCita() {
+    }
+
     public int getId() {
         return id;
     }
@@ -28,5 +31,10 @@ public class EstadoCita {
 
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+
+    @Override
+    public String toString() {
+        return  estado;
     }
 }

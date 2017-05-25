@@ -55,4 +55,9 @@ public class Agenda {
     public void setMedico(Medico medico) {
         this.medico = medico;
     }
+
+    @Override
+    public String toString() {
+        return fecha_cita;
+    }
 }
